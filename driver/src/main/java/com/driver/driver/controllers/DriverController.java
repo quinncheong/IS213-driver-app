@@ -2,6 +2,7 @@ package com.driver.driver.controllers;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -22,11 +23,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UrlCheckController {
+public class DriverController {
   DatabaseReference REF;
 
-  public UrlCheckController() throws IOException {
-    FileInputStream serviceAccount = new FileInputStream("src/main/resources/assets/privateKey.json");
+  public DriverController() throws IOException {
+    InputStream serviceAccount = getClass().getResourceAsStream("/privateKey.json");
+    // FileInputStream serviceAccount = new FileInputStream("src/main/resources/assets/privateKey.json");
     FirebaseOptions options = FirebaseOptions.builder()
         .setCredentials(GoogleCredentials.fromStream(serviceAccount))
         // The database URL depends on the location of the database
