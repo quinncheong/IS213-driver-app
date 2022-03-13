@@ -41,7 +41,7 @@ public class UrlCheckController {
     void onResponse(Object driver);
   }
 
-  public void readData(DatabaseReference ref,FirebaseCallback firebaseCallback) {
+  public void readData(DatabaseReference ref, FirebaseCallback firebaseCallback) {
     ref.addValueEventListener((ValueEventListener) new ValueEventListener() {
       @Override
       public void onDataChange(DataSnapshot dataSnapshot) {
@@ -54,18 +54,19 @@ public class UrlCheckController {
       public void onCancelled(DatabaseError error) {
       }
     });
-}
-
+  }
 
   @GetMapping("/driver/{driverId}")
   @ResponseBody
-  public Map<String, Object> getDriverId(@PathVariable String driverId) throws IOException, InterruptedException, ExecutionException {
+  public Map<String, Object> getDriverId(@PathVariable String driverId)
+      throws IOException, InterruptedException, ExecutionException {
     DatabaseReference ref = REF.child(driverId);
     Map<String, Object> response = new LinkedHashMap<>();
     response.put("code", 200);
     response.put("data", "none");
-    final FutureTask<Object> ft = new FutureTask<Object>(() -> {}, new Object());
-    readData(ref,new FirebaseCallback() {
+    final FutureTask<Object> ft = new FutureTask<Object>(() -> {
+    }, new Object());
+    readData(ref, new FirebaseCallback() {
       @Override
       public void onResponse(Object driver) {
         response.put("data", driver);
