@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.3",
     "ip": "^1.1.5",
-    "kafkajs": "^1.16.0"
+    "kafkajs": "^1.16.0",
+    "twilio": "^3.75.1"
   }
 }
