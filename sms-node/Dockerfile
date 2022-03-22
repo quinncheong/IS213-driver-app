@@ -1,6 +1,7 @@
-FROM python:3-slim
+FROM node:17.5.0
+ENV NODE_ENV=production
 WORKDIR /usr/src/app
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-COPY ./invokes.py ./test_invoke_http.py ./
-CMD [ "python", "./test_invoke_http.py" ]
+COPY ["package.json", "package-lock.json*", "./"]
+RUN npm install --production
+COPY . .
+CMD [ "node", "consumer.js" ]
