@@ -1,0 +1,53 @@
+version: "3.8"
+
+
+services:
+ 
+  customer:
+    build:
+      context: ./customer
+      dockerfile: Dockerfile
+    image: jsebastian2020/customer:proj
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: 1
+
+  loadDashboard:
+    build:
+      context: ./load_dashboard
+      dockerfile: Dockerfile
+    image: jsebastian2020/load_dashboard:proj
+    restart: always
+    environment:
+      loginURL : 'http://login:5001/authenticate'
+      driverURL : 'http://driver:5002/driver'
+      parcelURL : 'http://parcel:5003/parcel'
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "5000:5000"
+
+  getDeliveryAddresses:
+    build:
+      context: ./get_delivery_addresses
+      dockerfile: Dockerfile
+    image: jsebastian2020/get_delivery_addresses:proj
+    restart: always
+    environment:
+      customerURL : 'http://customer:5004/customer'
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "5010:5010"
+  updateParcelStatus:
+    build:
+      context: ./update_parcel_status
+      dockerfile: Dockerfile
+    image: jsebastian2020/update_parcel_status:proj
+    restart: always
+    environment:
+      customerURL : 'http://customer:5004/customer'
+      parcelURL : 'http://parcel:5003/parcel'
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "5020:5020"
+
+
