@@ -2,42 +2,48 @@ version: "3.8"
 
 
 services:
+ 
   login:
-  build:
-    context: ./login
-    dockerfile: Dockerfile
-  image: jsebastian2020/customer:proj
-  restart: always
-  environment:
-    PYTHONUNBUFFERED: 1
-# For Message Queue Kafka
-  zookeeper:
-    image: 'bitnami/zookeeper:latest'
-    ports:
-      - '2181:2181'
+    build:
+      context: ./login
+      dockerfile: Dockerfile
+    image: jsebastian2020/login:proj
+    restart: always
     environment:
-      - ALLOW_ANONYMOUS_LOGIN=yes
-  kafka:
-    image: 'bitnami/kafka:latest'
-    ports:
-      - '9093:9093'
+      PYTHONUNBUFFERED: 1
+
+  driver:
+    build:
+      context: ./driver
+      dockerfile: Dockerfile
+    image: jsebastian2020/driver:proj
+    restart: always
     environment:
-      - KAFKA_BROKER_ID=1
-      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
-      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
-      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092,EXTERNAL://localhost:9093
-      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
-      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-      - ALLOW_PLAINTEXT_LISTENER=yes
-    depends_on:
-      - zookeeper
-# End of Message Queue Kafka
+      PYTHONUNBUFFERED: 1
+
+  parcel:
+    build:
+      context: ./parcel
+      dockerfile: Dockerfile
+    image: jsebastian2020/parcel:proj
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: 1
 
   customer:
     build:
       context: ./customer
       dockerfile: Dockerfile
     image: jsebastian2020/customer:proj
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: 1
+  
+  SMS:
+    build:
+      context: ./sms-node
+      dockerfile: Dockerfile
+    image: jsebastian2020/sms:proj
     restart: always
     environment:
       PYTHONUNBUFFERED: 1
@@ -80,4 +86,29 @@ services:
     ports:
       - "5020:5020"
 
+
+
+
+# For Message Queue Kafka
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: 'bitnami/kafka:latest'
+    ports:
+      - '9093:9093'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092,EXTERNAL://localhost:9093
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+# End of Message Queue Kafka
 
