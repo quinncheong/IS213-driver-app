@@ -3,6 +3,7 @@ from flask_cors import CORS
 from invokes import invoke_http
 from os import environ
 
+from send_message import send_message
 
 app = Flask(__name__)
 CORS(app)
@@ -14,6 +15,9 @@ parcelURL = environ.get('parcelURL')
 # customerURL = 'http://localhost:5004/customer'
 # parcelURL = 'http://localhost:5003/parcel'
 
+@app.route("/")
+def healthcheck():
+    return 'Update Parcel Status is up and running!'
 
 @app.route("/parcel/<string:parcelId>", methods=['POST'])
 def updateParcelStatus(parcelId):
@@ -29,7 +33,19 @@ def updateParcelStatus(parcelId):
         json=request.get_json()
     )
     customer = response['data']
-    #send sms
+    #send sms and destructure customer data
+    customter_name = customer["CustomerName"];
+
+    phone_number = f"+65{customer['PhoneNumber']}";
+    msg_body = f"Dear {customter_name}, your parcel with id: {parcelId} has been delivered."
+
+    message = {
+        "phoneNumber": phone_number,
+        "body": msg_body,
+    }
+
+    #msg_status can be True or False, depending on err.
+    msg_status = send_message(message) 
     
     return jsonify(
         {
@@ -37,6 +53,22 @@ def updateParcelStatus(parcelId):
             "data": parcel
         }
     ),200
+
+# This test endpoint is to be used which will send a mock message to kafka topic
+# @app.route('/test')
+# def msg_test():
+#     phone_number = "+6597248790";
+#     customter_name = "Ian Chia";
+#     msg_body = f"Dear {customter_name}, your parcel with id: {12345} has been delivered."
+
+#     message = {
+#         "phoneNumber": phone_number,
+#         "body": msg_body,
+#     }
+
+#     #msg_status can be True or False, depending on err.
+#     msg_status = send_message(message) 
+#     return 'Gucci'
 
 
 if __name__ == '__main__':
