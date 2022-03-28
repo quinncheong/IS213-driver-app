@@ -10,7 +10,7 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-cred = credentials.Certificate('../privateKey.json')
+cred = credentials.Certificate('privateKey.json')
 
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://ninja-truck-9fb80-default-rtdb.asia-southeast1.firebasedatabase.app/'

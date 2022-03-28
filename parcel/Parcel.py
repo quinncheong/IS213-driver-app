@@ -9,7 +9,7 @@ from firebase_admin import db
 app = Flask(__name__)
 CORS(app)
 # Fetch the service account key JSON file contents
-cred = credentials.Certificate('../privateKey.json')
+cred = credentials.Certificate('privateKey.json')
 
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
