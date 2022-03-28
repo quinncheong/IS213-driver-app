@@ -5,12 +5,13 @@
 // const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 // Hardcode for now
-const { twilio_account_sid, twilio_auth_token } = require("../privateKey.json");
+const { twilio_account_sid, twilio_auth_token } = require("./privateKey.json");
 const client = require("twilio")(twilio_account_sid, twilio_auth_token);
 
 const clientId = "my-app";
 const groupId = "test-group";
 const topic = "test-topic";
+
 const broker = "127.0.0.1:9093";
 const phoneNumber = "+19402512615";
 

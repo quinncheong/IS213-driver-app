@@ -2,102 +2,20 @@ version: "3.8"
 
 
 services:
- 
-  login:
-    build:
-      context: ./login
-      dockerfile: Dockerfile
-    image: jsebastian2020/login:proj
-    restart: always
-    environment:
-      PYTHONUNBUFFERED: 1
-
-  driver:
-    build:
-      context: ./driver
-      dockerfile: Dockerfile
-    image: jsebastian2020/driver:proj
-    restart: always
-    environment:
-      PYTHONUNBUFFERED: 1
-
-  parcel:
-    build:
-      context: ./parcel
-      dockerfile: Dockerfile
-    image: jsebastian2020/parcel:proj
-    restart: always
-    environment:
-      PYTHONUNBUFFERED: 1
-
-  customer:
-    build:
-      context: ./customer
-      dockerfile: Dockerfile
-    image: jsebastian2020/customer:proj
-    restart: always
-    environment:
-      PYTHONUNBUFFERED: 1
-  
-  SMS:
-    build:
-      context: ./sms-node
-      dockerfile: Dockerfile
-    image: jsebastian2020/sms:proj
-    restart: always
-    environment:
-      PYTHONUNBUFFERED: 1
-
-  loadDashboard:
-    build:
-      context: ./load_dashboard
-      dockerfile: Dockerfile
-    image: jsebastian2020/load_dashboard:proj
-    restart: always
-    environment:
-      loginURL : 'http://login:5001/authenticate'
-      driverURL : 'http://driver:5002/driver'
-      parcelURL : 'http://parcel:5003/parcel'
-      PYTHONUNBUFFERED: 1
-    ports:
-      - "5000:5000"
-
-  getDeliveryAddresses:
-    build:
-      context: ./get_delivery_addresses
-      dockerfile: Dockerfile
-    image: jsebastian2020/get_delivery_addresses:proj
-    restart: always
-    environment:
-      customerURL : 'http://customer:5004/customer'
-      PYTHONUNBUFFERED: 1
-    ports:
-      - "5010:5010"
-  updateParcelStatus:
-    build:
-      context: ./update_parcel_status
-      dockerfile: Dockerfile
-    image: jsebastian2020/update_parcel_status:proj
-    restart: always
-    environment:
-      customerURL : 'http://customer:5004/customer'
-      parcelURL : 'http://parcel:5003/parcel'
-      PYTHONUNBUFFERED: 1
-    ports:
-      - "5020:5020"
-
-
-
 
 # For Message Queue Kafka
   zookeeper:
     image: 'bitnami/zookeeper:latest'
+    restart: always
     ports:
       - '2181:2181'
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+
+
   kafka:
     image: 'bitnami/kafka:latest'
+    restart: always
     ports:
       - '9093:9093'
     environment:
@@ -111,4 +29,93 @@ services:
     depends_on:
       - zookeeper
 # End of Message Queue Kafka
+ 
+  login:
+    build:
+      context: ./login
+      dockerfile: Dockerfile
+    image: jsebastian2020/login:proj
+    restart: always
+    
+
+  driver:
+    build:
+      context: ./driver
+      dockerfile: Dockerfile
+    image: jsebastian2020/driver:proj
+    restart: always
+
+  parcel:
+    build:
+      context: ./parcel
+      dockerfile: Dockerfile
+    image: jsebastian2020/parcel:proj
+    restart: always
+
+  customer:
+    build:
+      context: ./customer
+      dockerfile: Dockerfile
+    image: jsebastian2020/customer:proj
+    restart: always
+  
+  sms:
+    build:
+      context: ./sms-node
+      dockerfile: Dockerfile
+    image: jsebastian2020/sms:proj
+    restart: always
+    depends_on:
+      - kafka
+      - zookeeper
+
+  loadDashboard:
+    build:
+      context: ./load_dashboard
+      dockerfile: Dockerfile
+    image: jsebastian2020/load_dashboard:proj
+    restart: always
+    environment:
+      loginURL : 'http://login:5001/authenticate'
+      driverURL : 'http://driver:5002/driver'
+      parcelURL : 'http://parcel:5003/parcel'
+    ports:
+      - "5000:5000"
+    depends_on:
+      - login
+      - driver
+      - parcel
+
+  getDeliveryAddresses:
+    build:
+      context: ./get_delivery_addresses
+      dockerfile: Dockerfile
+    image: jsebastian2020/get_delivery_addresses:proj
+    restart: always
+    environment:
+      customerURL : 'http://customer:5004/customer'
+    ports:
+      - "5010:5010"
+    depends_on:
+      - customer
+    
+  updateParcelStatus:
+    build:
+      context: ./update_parcel_status
+      dockerfile: Dockerfile
+    image: jsebastian2020/update_parcel_status:proj
+    restart: always
+    environment:
+      customerURL : 'http://customer:5004/customer'
+      parcelURL : 'http://parcel:5003/parcel'
+    ports:
+      - "5020:5020"
+    depends_on:
+      - parcel
+      - customer
+      - sms
+
+
+
+
 
