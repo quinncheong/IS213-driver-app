@@ -27,7 +27,10 @@ def getDeliveryAddress():
     customerList = []
     for k, v in customers.items():
         v["customerID"] = k
+        v["position"]={"lat":v["Lat"],"lng":v["Lng"]}
         customerList.append(v)
+
+        
     return jsonify(
         {
             "code": 200,
