@@ -37,10 +37,10 @@ def getParcels(driverId):
 def setParcelStatus(parcelId):
     data = request.get_json()
     status = data['status']
-    reason = data['reason']
+    # reason = data['reason']
     parcel = ref.child(parcelId)
     parcel.child('Status').set(status)
-    parcel.child("Reason").set(reason)
+    # parcel.child("Reason").set(reason)
     timeDelivered = datetime.datetime.now().strftime("%Y%m%dT%H%M%S")
     parcel.child("TimeDelivered").set(timeDelivered)
 
