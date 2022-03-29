@@ -4,7 +4,7 @@ from kafka.errors import KafkaError
 import json
 
 # Hardcoded for now but must change
-bootstrap_server = '127.0.0.1:9093' 
+bootstrap_server = 'kafka:9093' 
 kafka_topic = 'test-topic'
 
 # This file serves as the outline for the Kafka Producer.

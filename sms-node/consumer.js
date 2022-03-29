@@ -12,7 +12,7 @@ const clientId = "my-app";
 const groupId = "test-group";
 const topic = "test-topic";
 
-const broker = "127.0.0.1:9093";
+const broker = "kafka:9093";
 const phoneNumber = "+19402512615";
 
 const { Kafka } = require("kafkajs");
