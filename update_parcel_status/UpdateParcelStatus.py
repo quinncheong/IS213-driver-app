@@ -34,9 +34,9 @@ def updateParcelStatus(parcelId):
     )
     customer = response['data']
     #send sms and destructure customer data
-    customter_name = customer["CustomerName"];
+    customter_name = customer["CustomerName"]
 
-    phone_number = f"+65{customer['PhoneNumber']}";
+    phone_number = f"+65{customer['PhoneNumber']}"
     msg_body = f"Dear {customter_name}, your parcel with id: {parcelId} has been delivered."
 
     message = {
