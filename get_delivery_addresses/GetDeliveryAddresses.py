@@ -21,10 +21,8 @@ def getDeliveryAddresses():
         response = invoke_http(
             customerURL+"/"+customerId, method='GET',
         )
-        print(response)
         customers[customerId]=response['data']
 
-    print(customers)
     customerList = []
     for k, v in customers.items():
         v["customerID"] = k

@@ -23,7 +23,6 @@ ref = db.reference('Customers')
 def getCustomer(customerId):
 
     customer = ref.child(customerId).get()
-    print(customer)
     return jsonify(
         {
             "code": 200,
