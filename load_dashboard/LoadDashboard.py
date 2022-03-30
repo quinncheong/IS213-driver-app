@@ -22,11 +22,11 @@ def loadDashboard():
         loginURL, method='POST',
         json=request.get_json()
     )
-    
+
     if response['code'] != 200:
         return  response,response['code']
-    credential= response['data']
-    driverId = credential['DriverID']
+    driverId= response['data']
+
 
     response = invoke_http(
         driverURL+'/'+driverId, method='GET',
@@ -47,7 +47,7 @@ def loadDashboard():
         {
             "code": 200,
             "data": {
-                "credential":credential,
+                "driverId":driverId,
                 "driver": driver,
                 "parcels": parcelList,
             },

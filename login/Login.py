@@ -32,7 +32,9 @@ def create_password():
 
 @app.route("/authenticate", methods=['POST'])
 def login():
+    
     data = request.get_json()
+    print(data)
     username = data['username']
     password = data['password']
     user_dict = ref.child(username).get()
