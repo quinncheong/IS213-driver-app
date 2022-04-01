@@ -1,13 +1,13 @@
 version: "3.8"
 
 
-# volumes:
-#   pgdata: 
-#   kongadata:
+volumes:
+  pgdata: 
+  kongadata:
 
-# networks:
-#   kong-net:
-#     driver: bridge
+networks:
+  kong-net:
+    driver: bridge
 
 services:
 
@@ -15,6 +15,8 @@ services:
   zookeeper:
     image: 'bitnami/zookeeper:latest'
     restart: always
+    networks:
+      - kong-net
     ports:
       - '2181:2181'
     environment:
@@ -24,6 +26,8 @@ services:
   kafka:
     image: 'bitnami/kafka:latest'
     restart: always
+    networks:
+      - kong-net
     ports:
       - '9093:9093'
     environment:
@@ -44,6 +48,8 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/login:proj
     restart: always
+    networks:
+      - kong-net
     
 
   driver:
@@ -52,6 +58,8 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/driver:proj
     restart: always
+    networks:
+      - kong-net
 
   parcel:
     build:
@@ -59,6 +67,8 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/parcel:proj
     restart: always
+    networks:
+      - kong-net
 
   customer:
     build:
@@ -66,6 +76,8 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/customer:proj
     restart: always
+    networks:
+      - kong-net
   
   sms:
     build:
@@ -73,6 +85,8 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/sms:proj
     restart: always
+    networks:
+      - kong-net
     depends_on:
       - kafka
       - zookeeper
@@ -83,12 +97,14 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/load_dashboard:proj
     restart: always
+    networks:
+      - kong-net
     environment:
       loginURL : 'http://login:5001/authenticate'
       driverURL : 'http://driver:5002/driver'
       parcelURL : 'http://parcel:5003/parcel'
-    ports:
-      - "5000:5000"
+    # ports:
+    #   - "5000:5000"
     depends_on:
       - login
       - driver
@@ -100,10 +116,12 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/get_delivery_addresses:proj
     restart: always
+    networks:
+      - kong-net
     environment:
       customerURL : 'http://customer:5004/customer'
-    ports:
-      - "5010:5010"
+    # ports:
+    #   - "5010:5010"
     depends_on:
       - customer
     
@@ -113,11 +131,13 @@ services:
       dockerfile: Dockerfile
     image: jsebastian2020/update_parcel_status:proj
     restart: always
+    networks:
+      - kong-net
     environment:
       customerURL : 'http://customer:5004/customer'
       parcelURL : 'http://parcel:5003/parcel'
-    ports:
-      - "5020:5020"
+    # ports:
+    #   - "5020:5020"
     depends_on:
       - parcel
       - customer
@@ -125,83 +145,83 @@ services:
       - kafka
 
 
-  # #######################################
-  # # Postgres: The database used by Kong
-  # #######################################
-  # kong-database:
-  #   image: postgres:9.6
-  #   restart: always
-  #   networks:
-  #     - kong-net
-  #   environment:
-  #     POSTGRES_DB: kong
-  #     POSTGRES_USER: kong
-  #     POSTGRES_PASSWORD: password
-  #   ports:
-  #     - "5432:5432"
-  #   healthcheck:
-  #     test: ["CMD", "pg_isready", "-U", "kong"]
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
+  #######################################
+  # Postgres: The database used by Kong
+  #######################################
+  kong-database:
+    image: postgres:9.6
+    restart: always
+    networks:
+      - kong-net
+    environment:
+      POSTGRES_DB: kong
+      POSTGRES_USER: kong
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "kong"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
-  # #######################################
-  # # Kong database migration
-  # #######################################
-  # kong-migration:
-  #   image: kong:2.0.4
-  #   command: "kong migrations bootstrap"
-  #   restart: on-failure
-  #   networks:
-  #     - kong-net
-  #   environment:
-  #     KONG_DATABASE: postgres
-  #     KONG_PG_HOST: kong-database
-  #     KONG_PG_USER: kong
-  #     KONG_PG_PASSWORD: password
-  #   depends_on:
-  #     - kong-database
+  #######################################
+  # Kong database migration
+  #######################################
+  kong-migration:
+    image: kong:2.0.4
+    command: "kong migrations bootstrap"
+    restart: on-failure
+    networks:
+      - kong-net
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: password
+    depends_on:
+      - kong-database
 
-  # #######################################
-  # # Kong: The API Gateway
-  # #######################################
-  # kong:
-  #   image: kong:2.0.4
-  #   restart: always
-  #   networks:
-  #     - kong-net
-  #   environment:
-  #     KONG_DATABASE: postgres
-  #     KONG_PG_HOST: kong-database
-  #     KONG_PG_USER: kong
-  #     KONG_PG_PASSWORD: password
-  #     KONG_PROXY_LISTEN: 0.0.0.0:8000
-  #     KONG_ADMIN_LISTEN: 0.0.0.0:8001
-  #   depends_on:
-  #     - kong-migration
-  #   ports:
-  #     - "8000:8000"
+  #######################################
+  # Kong: The API Gateway
+  #######################################
+  kong:
+    image: kong:2.0.4
+    restart: always
+    networks:
+      - kong-net
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: password
+      KONG_PROXY_LISTEN: 0.0.0.0:8000
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+    depends_on:
+      - kong-migration
+    ports:
+      - "8000:8000"
   
-  # #######################################
-  # # Konga: Kong GUI
-  # #######################################
-  # konga:
-  #   image: pantsel/konga
-  #   restart: always
-  #   networks:
-  #       - kong-net
-  #   environment:
-  #     DB_ADAPTER: postgres
-  #     DB_HOST: kong-database
-  #     DB_USER: kong
-  #     DB_PASSWORD: password
-  #     DB_DATABASE: konga_db
-  #   depends_on:
-  #     - kong
-  #   ports:
-  #     - "1337:1337"
-  #   volumes:
-  #     - kongadata:/app/kongadata
+  #######################################
+  # Konga: Kong GUI
+  #######################################
+  konga:
+    image: pantsel/konga
+    restart: always
+    networks:
+        - kong-net
+    environment:
+      DB_ADAPTER: postgres
+      DB_HOST: kong-database
+      DB_USER: kong
+      DB_PASSWORD: password
+      DB_DATABASE: konga_db
+    depends_on:
+      - kong
+    ports:
+      - "1337:1337"
+    volumes:
+      - kongadata:/app/kongadata
 
