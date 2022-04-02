@@ -46,7 +46,7 @@ services:
     build:
       context: ./login
       dockerfile: Dockerfile
-    image: jsebastian2020/login:proj
+    image: ninjatruck/login:g5t7
     restart: always
     networks:
       - kong-net
@@ -56,7 +56,7 @@ services:
     build:
       context: ./driver
       dockerfile: Dockerfile
-    image: jsebastian2020/driver:proj
+    image: ninjatruck/driver:g5t7
     restart: always
     networks:
       - kong-net
@@ -65,7 +65,7 @@ services:
     build:
       context: ./parcel
       dockerfile: Dockerfile
-    image: jsebastian2020/parcel:proj
+    image: ninjatruck/parcel:g5t7
     restart: always
     networks:
       - kong-net
@@ -74,7 +74,7 @@ services:
     build:
       context: ./customer
       dockerfile: Dockerfile
-    image: jsebastian2020/customer:proj
+    image: ninjatruck/customer:g5t7
     restart: always
     networks:
       - kong-net
@@ -83,7 +83,7 @@ services:
     build:
       context: ./sms-node
       dockerfile: Dockerfile
-    image: jsebastian2020/sms:proj
+    image: ninjatruck/sms:g5t7
     restart: always
     networks:
       - kong-net
@@ -95,7 +95,7 @@ services:
     build:
       context: ./load_dashboard
       dockerfile: Dockerfile
-    image: jsebastian2020/load_dashboard:proj
+    image: ninjatruck/load_dashboard:g5t7
     restart: always
     networks:
       - kong-net
@@ -114,7 +114,7 @@ services:
     build:
       context: ./get_delivery_addresses
       dockerfile: Dockerfile
-    image: jsebastian2020/get_delivery_addresses:proj
+    image: ninjatruck/get_delivery_addresses:g5t7
     restart: always
     networks:
       - kong-net
@@ -129,7 +129,7 @@ services:
     build:
       context: ./update_parcel_status
       dockerfile: Dockerfile
-    image: jsebastian2020/update_parcel_status:proj
+    image: ninjatruck/update_parcel_status:g5t7
     restart: always
     networks:
       - kong-net
