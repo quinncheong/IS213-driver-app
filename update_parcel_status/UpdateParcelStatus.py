@@ -26,7 +26,7 @@ def updateParcelStatus(parcelId):
         parcelURL+'/'+parcelId, method='PUT',
         json=request.get_json()
     )
-    print(response)
+    
     parcel = response['data']
 
     response = invoke_http(
@@ -35,15 +35,12 @@ def updateParcelStatus(parcelId):
     )
     customer = response['data']
 
-    print(parcel)
-    print(customer)
-
     #send sms and destructure customer data
     customter_name = customer["CustomerName"]
 
     phone_number = f"+65{customer['PhoneNumber']}"
 
-    if parcel['Status'] == 'failed':
+    if parcel['Status'] == 'Failed':
         msg_body = f"Hi {customter_name}, your parcel with ID {parcelId} has failed to deliver."
     else:
         msg_body = f"Dear {customter_name}, your parcel with id: {parcelId} has been delivered."
