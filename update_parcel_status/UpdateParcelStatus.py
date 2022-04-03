@@ -19,7 +19,7 @@ parcelURL = environ.get('parcelURL')
 def healthcheck():
     return 'Update Parcel Status is up and running!'
 
-@app.route("/parcel/<string:parcelId>", methods=['POST'])
+@app.route("/updateParcelStatus/<string:parcelId>", methods=['POST'])
 def updateParcelStatus(parcelId):
 
     response = invoke_http(

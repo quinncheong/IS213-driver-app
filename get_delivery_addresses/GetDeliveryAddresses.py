@@ -12,8 +12,8 @@ customerURL = environ.get('customerURL')
 # customerURL = 'http://localhost:5004/customer'
 
 
-@app.route("/customer", methods=['POST'])
-def getDeliveryAddress():
+@app.route("/getDeliveryAddresses", methods=['POST'])
+def getDeliveryAddresses():
 
     data = request.get_json()
     customers={}
@@ -23,13 +23,12 @@ def getDeliveryAddress():
         )
         customers[customerId]=response['data']
 
-
     customerList = []
     for k, v in customers.items():
         v["customerID"] = k
-        v["position"]={"lat":v["Lat"],"lng":v["Lng"]}
+        v["position"]={"lat":v.pop("Lat"),"lng":v.pop("Lng")}
         customerList.append(v)
-
+        
         
     return jsonify(
         {
