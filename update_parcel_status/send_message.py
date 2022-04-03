@@ -5,7 +5,7 @@ import json
 
 # Hardcoded for now but must change
 bootstrap_server = 'kafka:9093' 
-kafka_topic = 'test-topic'
+kafka_topic = 'twilio-msg'
 
 # This file serves as the outline for the Kafka Producer.
 # We are using a kafka-python wrapper on top of the native kafka built by apache

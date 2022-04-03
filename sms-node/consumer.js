@@ -8,9 +8,9 @@
 const { twilio_account_sid, twilio_auth_token } = require("./privateKey.json");
 const client = require("twilio")(twilio_account_sid, twilio_auth_token);
 
-const clientId = "my-app";
-const groupId = "test-group";
-const topic = "test-topic";
+const clientId = "ninjatruck";
+const groupId = "twilio-msg-group";
+const topic = "twilio-msg";
 
 const broker = "kafka:9093";
 const phoneNumber = "+19402512615";
@@ -43,14 +43,14 @@ const run = async () => {
 				message.value.toString()
 			);
 
-			// client.messages
-			// 	.create({
-			// 		body: body,
-			// 		from: phoneNumber,
-			// 		to: numberToSend, // It must start with +65
-			// 	})
-			// 	.then((message) => console.log(message.sid))
-			// 	.catch((err) => console.log(err));
+			client.messages
+				.create({
+					body: body,
+					from: phoneNumber,
+					to: numberToSend, // It must start with +65
+				})
+				.then((message) => console.log(message.sid))
+				.catch((err) => console.log(err));
 		},
 	});
 };
