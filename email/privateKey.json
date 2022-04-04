@@ -10,5 +10,8 @@
 	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
 	"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ohw4i%40ninja-truck-9fb80.iam.gserviceaccount.com",
 	"twilio_account_sid": "ACd0a2edb340c30efaa40356724a1334f2",
-	"twilio_auth_token": "8c0feed3875e2661f695462b116f93ca"
+	"twilio_auth_token": "8c0feed3875e2661f695462b116f93ca",
+	"nodemailerUser": "ninjatruckESD@gmail.com",
+	"nodemailerPass": "ninjatruckesd123"
+
 }
