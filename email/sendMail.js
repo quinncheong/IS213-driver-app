@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const { nodeemailerUser, nodemailerPass } = require("./privateKey.json");
 
-export default async function main(message) {
+async function main(message) {
 	// create reusable transporter object using the default SMTP transport
 	let transporter = nodemailer.createTransport({
 		host: "smtp-mail.outlook.com", // hostname
@@ -17,30 +17,32 @@ export default async function main(message) {
 		},
 		requireTLS: true,
 	});
-	
+
 	const output = `
-		<h3>Hello Admin Team ${email},</h3>
-		<p>The Parcel for user ${} with ID: ${} has failed to deliver.</p>
+		<h3>Hello Admin Team,</h3>
+		<p>The Parcel with ID: ${message.parcelId} for user ${message.customerName} has failed to deliver.</p>
 		<p>Please look into this to resolve the parcel issue.</p>
 		`;
-	
+
 	let mailOptions = {
 		from: '"NinjaTruck" <ninjatruckESD@gmail.com>', // sender address
-		to: email, // list of receivers in string form
-		subject: `Failed Delivery for ID: ${}`, // Subject line
+		to: message.emails, // list of receivers in string form
+		subject: `Failed Delivery for Parcel: ${message.parcelId}`, // Subject line
 		// text: `Click on / go to the link to reset your password ${link}${id}`, // plain text body
 		html: output, // html body
 	};
-	
+
 	// send mail with defined transport object
 	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {
 			throw error;
 		}
 
-		console.log(info)
-		return
+		console.log(info);
+		return;
 	});
-	
 }
 
+module.exports = {
+	main
+}

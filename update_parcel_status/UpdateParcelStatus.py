@@ -4,6 +4,7 @@ from invokes import invoke_http
 from os import environ
 
 from send_message import send_message
+from send_email import send_email
 
 app = Flask(__name__)
 CORS(app)
@@ -18,6 +19,16 @@ parcelURL = environ.get('parcelURL')
 @app.route("/")
 def healthcheck():
     return 'Update Parcel Status is up and running!'
+
+@app.route("/test")
+def test():
+    email_message = {
+        "parcelId": 12345,
+        "customerName": 'testing',
+    }
+    send_email(email_message)
+
+    return jsonify("OK", 200)
 
 @app.route("/updateParcelStatus/<string:parcelId>", methods=['POST'])
 def updateParcelStatus(parcelId):
@@ -52,6 +63,12 @@ def updateParcelStatus(parcelId):
 
     #msg_status can be True or False, depending on err.
     msg_status = send_message(message) 
+
+    email_message = {
+        "parcelId": parcelId,
+        "customerName": customter_name,
+    }
+    send_email(email_message)
     
     return jsonify(
         {

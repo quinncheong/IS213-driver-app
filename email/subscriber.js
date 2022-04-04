@@ -1,7 +1,6 @@
-const config = require("./config");
 const amqplib = require("amqplib/callback_api");
-const nodemailer = require("nodemailer");
-const sendMail = require("./sendMail").default;
+
+const sendMail = require("./sendMail").main;
 
 const host = "127.0.0.1";
 const port = "12345";
@@ -47,9 +46,9 @@ amqplib.connect(amqp, (err, connection) => {
 					// Decode message contents
 					let message = JSON.parse(data.content.toString());
 
-                    console.log(message)
+					console.log(message);
 
-                    // await sendMail(message);
+					// await sendMail(message);
 				});
 			}
 		);
