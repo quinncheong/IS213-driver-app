@@ -46,7 +46,7 @@ def updateParcelStatus(parcelId):
     if parcel['Status'] == 'failed':
         msg_body = f"Hi {customter_name}, your parcel with ID {parcelId} has failed to deliver."
     else:
-        msg_body = f"Dear {customter_name}, your parcel with id: {parcelId} has been delivered."
+        msg_body = f"Dear {customter_name}, your parcel with ID: {parcelId} has been delivered."
 
     message = {
         "phoneNumber": phone_number,
