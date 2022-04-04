@@ -83,7 +83,7 @@
       "Status" : "toDeliver",
       "Time" : "9AM - 10PM",
       "TimeDelivered" : "",
-      "Weight" : "5.4kg"
+      "Weight" : 5.4
     },
     "SGNJVAPPDELTRG6" : {
       "CoD" : true,
