@@ -6,7 +6,8 @@
       "Lat" : 1.37746,
       "Lng" : 103.8286,
       "PhoneNumber" : 94573673,
-      "PostalCode" : 678278
+      "PostalCode" : 678278,
+      "Email": "quinncheong.2019@scis.smu.edu.sg"
     },
     "58c90aa2-dc19-4e43-8593-edcfeb02f04a" : {
       "Address" : "6 Hougang Avenue 3 01-88",
@@ -14,7 +15,8 @@
       "Lat" : 456,
       "Lng" : 123,
       "PhoneNumber" : 80000006,
-      "PostalCode" : 530006
+      "PostalCode" : 530006,
+      "Email":"jsebastian.2020@scis.smu.edu.sg"
     },
     "970109fa-bae0-48dc-8407-479ddf94b519" : {
       "Address" : "33, Sembawang Hills Drive, Ang Mo Kio",
@@ -22,7 +24,8 @@
       "Lat" : 1.376516,
       "Lng" : 103.830228,
       "PhoneNumber" : 94792020,
-      "PostalCode" : 579524
+      "PostalCode" : 579524,
+      "Email": "hazelma.2020@scis.smu.edu.sg"
     },
     "b1bca1c4-0fa2-46a9-85d0-bdf8fcdac77d" : {
       "Address" : "50, Jalan Gelenggang, Ang Mo Kio",
@@ -30,7 +33,8 @@
       "Lat" : 1.37441,
       "Lng" : 103.830511,
       "PhoneNumber" : 90298918,
-      "PostalCode" : 579524
+      "PostalCode" : 579524,
+      "Email": "gregtan.2020@scis.smu.edu.sg"
     },
     "e3b54bd0-2c9a-40ee-a835-2e8d707d20d0" : {
       "Address" : "65, Jalan Gelenggang, Ang Mo Kio",
@@ -38,7 +42,8 @@
       "Lat" : 1.374946,
       "Lng" : 103.82976,
       "PhoneNumber" : 97248790,
-      "PostalCode" : 579524
+      "PostalCode" : 579524,
+      "Email": "ian.chia.2020@scis.smu.edu.sg"
     },
     "f0eb8225-dab8-4658-b4af-fb35b27fe55f" : {
       "Address" : "26, Jalan Sappan, Ang Mo Kio",
@@ -46,7 +51,8 @@
       "Lat" : 1.372442,
       "Lng" : 103.831595,
       "PhoneNumber" : 86556981,
-      "PostalCode" : 568912
+      "PostalCode" : 568912,
+      "Email": "jsebastian.2020@scis.smu.edu.sg"
     }
   },
   "Drivers" : {
@@ -86,7 +92,7 @@
       "Status" : "toDeliver",
       "Time" : "11AM - 6PM",
       "TimeDelivered" : "",
-      "Weight" : "2.3kg"
+      "Weight" : 2.3
     },
     "SGNJVAPPDELTRG7" : {
       "CoD" : false,
@@ -95,7 +101,7 @@
       "Status" : "toDeliver",
       "Time" : "10PM - 3PM",
       "TimeDelivered" : "",
-      "Weight" : "0.7kg"
+      "Weight" : 0.7
     },
     "SGNJVAPPDELTRG8" : {
       "CoD" : true,
@@ -104,7 +110,7 @@
       "Status" : "toDeliver",
       "Time" : "3PM - 9PM",
       "TimeDelivered" : "",
-      "Weight" : "1.2kg"
+      "Weight" : 1.2
     },
     "SGNJVAPPDELTRG9" : {
       "CoD" : false,
@@ -113,7 +119,7 @@
       "Status" : "Completed",
       "Time" : "8AM - 11AM",
       "TimeDelivered" : "20220313T122759",
-      "Weight" : "6.1kg"
+      "Weight" : 6.1
     },
     "SGNJVAPPDELTRH1" : {
       "CoD" : false,
@@ -122,7 +128,7 @@
       "Status" : "Failed",
       "Time" : "2PM - 7PM",
       "TimeDelivered" : "20220313T122710",
-      "Weight" : "0.8kg"
+      "Weight" : 0.8
     }
   }
 }
