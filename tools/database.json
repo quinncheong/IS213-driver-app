@@ -6,8 +6,7 @@
       "Lat" : 1.37746,
       "Lng" : 103.8286,
       "PhoneNumber" : 94573673,
-      "PostalCode" : 678278,
-      "Email": "quinncheong.2019@scis.smu.edu.sg"
+      "PostalCode" : 678278
     },
     "58c90aa2-dc19-4e43-8593-edcfeb02f04a" : {
       "Address" : "6 Hougang Avenue 3 01-88",
@@ -15,8 +14,7 @@
       "Lat" : 456,
       "Lng" : 123,
       "PhoneNumber" : 80000006,
-      "PostalCode" : 530006,
-      "Email":"jsebastian.2020@scis.smu.edu.sg"
+      "PostalCode" : 530006
     },
     "970109fa-bae0-48dc-8407-479ddf94b519" : {
       "Address" : "33, Sembawang Hills Drive, Ang Mo Kio",
@@ -24,8 +22,7 @@
       "Lat" : 1.376516,
       "Lng" : 103.830228,
       "PhoneNumber" : 94792020,
-      "PostalCode" : 579524,
-      "Email": "hazelma.2020@scis.smu.edu.sg"
+      "PostalCode" : 579524
     },
     "b1bca1c4-0fa2-46a9-85d0-bdf8fcdac77d" : {
       "Address" : "50, Jalan Gelenggang, Ang Mo Kio",
@@ -33,8 +30,7 @@
       "Lat" : 1.37441,
       "Lng" : 103.830511,
       "PhoneNumber" : 90298918,
-      "PostalCode" : 579524,
-      "Email": "gregtan.2020@scis.smu.edu.sg"
+      "PostalCode" : 579524
     },
     "e3b54bd0-2c9a-40ee-a835-2e8d707d20d0" : {
       "Address" : "65, Jalan Gelenggang, Ang Mo Kio",
@@ -42,8 +38,7 @@
       "Lat" : 1.374946,
       "Lng" : 103.82976,
       "PhoneNumber" : 97248790,
-      "PostalCode" : 579524,
-      "Email": "ian.chia.2020@scis.smu.edu.sg"
+      "PostalCode" : 579524
     },
     "f0eb8225-dab8-4658-b4af-fb35b27fe55f" : {
       "Address" : "26, Jalan Sappan, Ang Mo Kio",
@@ -51,8 +46,7 @@
       "Lat" : 1.372442,
       "Lng" : 103.831595,
       "PhoneNumber" : 86556981,
-      "PostalCode" : 568912,
-      "Email": "jsebastian.2020@scis.smu.edu.sg"
+      "PostalCode" : 568912
     }
   },
   "Drivers" : {
