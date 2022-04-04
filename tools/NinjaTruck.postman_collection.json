@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "loginSuccessful",
+			"name": "loadDashboard_Success",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -34,7 +34,7 @@
 			"response": []
 		},
 		{
-			"name": "loginFailed",
+			"name": "loadDashboard_Fail",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -90,13 +90,13 @@
 			"response": []
 		},
 		{
-			"name": "updateParcelStatusSuccessful",
+			"name": "updateParcelStatus_Completed",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"status\":\"Success\"\r\n}",
+					"raw": "{\r\n    \"status\":\"Completed\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -119,7 +119,7 @@
 			"response": []
 		},
 		{
-			"name": "updateParcelStatusFailed",
+			"name": "updateParcelStatus_Failed",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -133,7 +133,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/updateParcelStatus/SGNJVAPPDELTRG5",
+					"raw": "http://localhost:8000/updateParcelStatus/SGNJVAPPDELTRG6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -141,7 +141,7 @@
 					"port": "8000",
 					"path": [
 						"updateParcelStatus",
-						"SGNJVAPPDELTRG5"
+						"SGNJVAPPDELTRG6"
 					]
 				}
 			},
