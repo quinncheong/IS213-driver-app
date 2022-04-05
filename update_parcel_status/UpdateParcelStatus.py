@@ -25,6 +25,7 @@ def test():
     email_message = {
         "parcelId": 'helllooworld',
         "customerName": 'testing',
+        "emails": ["quinncheong.2019@scis.smu.edu.sg", "ian.chia.2020@scis.smu.edu.sg", "jsebastian.2020@scis.smu.edu.sg"]
     }
     send_email(email_message)
 
@@ -53,6 +54,19 @@ def updateParcelStatus(parcelId):
 
     if parcel['Status'] == 'Failed':
         msg_body = f"Hi {customter_name}, your parcel with ID {parcelId} has failed to deliver."
+
+        emails =  [
+            "quinncheong.2019@scis.smu.edu.sg", 
+            "ian.chia.2020@scis.smu.edu.sg", 
+            "jsebastian.2020@scis.smu.edu.sg"
+            ]
+
+        email_message = {
+            "parcelId": parcelId,
+            "customerName": customter_name,
+            "emails": emails
+        }
+        send_email(email_message)
     else:
         msg_body = f"Dear {customter_name}, your parcel with ID: {parcelId} has been delivered."
 

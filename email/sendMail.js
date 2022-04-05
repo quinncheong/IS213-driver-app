@@ -1,15 +1,18 @@
 const nodemailer = require("nodemailer");
-const { nodeemailerUser, nodemailerPass } = require("./privateKey.json");
+const { nodemailerUser, nodemailerPass } = require("./privateKey.json");
+
+// https://accounts.google.com/b/0/DisplayUnlockCaptcha might have to do this
 
 async function main(message) {
+	console.log(message);
 	// create reusable transporter object using the default SMTP transport
 	let transporter = nodemailer.createTransport({
-		host: "smtp-mail.outlook.com", // hostname
-		// service: "hotmail",
+		// host: "smtp-mail.gmail.com", // hostname
+		service: "gmail",
 		port: 587, // port for secure SMTP
 		secure: false, // true for 465, false for other ports
 		auth: {
-			user: nodeemailerUser,
+			user: nodemailerUser,
 			pass: nodemailerPass,
 		},
 		tls: {
@@ -24,9 +27,11 @@ async function main(message) {
 		<p>Please look into this to resolve the parcel issue.</p>
 		`;
 
+	const emailStr = message.emails.join(",")
+
 	let mailOptions = {
 		from: '"NinjaTruck" <ninjatruckESD@gmail.com>', // sender address
-		to: message.emails, // list of receivers in string form
+		to: emailStr, // list of receivers in string form
 		subject: `Failed Delivery for Parcel: ${message.parcelId}`, // Subject line
 		// text: `Click on / go to the link to reset your password ${link}${id}`, // plain text body
 		html: output, // html body
@@ -35,6 +40,7 @@ async function main(message) {
 	// send mail with defined transport object
 	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {
+			console.log("hitting the error");
 			throw error;
 		}
 
@@ -44,5 +50,5 @@ async function main(message) {
 }
 
 module.exports = {
-	main
-}
+	main,
+};

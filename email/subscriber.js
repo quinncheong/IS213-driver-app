@@ -29,7 +29,7 @@ amqplib.connect(amqp, (err, connection) => {
 
 			// Only request 1 unacked message from queue
 			// This value indicates how many messages we want to process in parallel
-			channel.prefetch(2);
+			channel.prefetch(1);
 
 			// Set up callback to handle messages received from the queue
 			channel.consume(
@@ -47,7 +47,7 @@ amqplib.connect(amqp, (err, connection) => {
 
 					console.log(message);
 
-					// await sendMail(message);
+					sendMail(message);
 				},
 				{ noAck: true }
 			);
