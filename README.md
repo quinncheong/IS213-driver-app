@@ -22,7 +22,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="750" height="375">
+    <img src="images/logo.png" alt="Logo" width="600" height="300">
   </a>
 
   <p align="center">
@@ -87,27 +87,27 @@ NinjaTruck aims to be the last mile delivery management solution for delivery dr
 ## Built With
 
 ### Frontend
-* [Vue.js](https://nextjs.org/)
-* [Quasar](https://reactjs.org/)
+* [Vue.js](https://vuejs.org/)
+* [Quasar](https://quasar.dev/)
 
 ### API Gateway
-* [KONG](https://laravel.com)
+* [KONG](https://konghq.com)
 
 ### Backend
-* [Python](https://vuejs.org/)
-* [Node.js](https://angular.io/)
-* [Java Spring Boot](https://svelte.dev/)
-* [Docker](https://laravel.com)
+* [Python](https://python.org/)
+* [Node.js](https://nodejs.org/)
+* [Java Spring Boot](https://spring.io/)
+* [Docker](https://docker.com)
 
 ### Message Brokers
-* [RabbitMQ](https://laravel.com)
-* [Apache Kafka](https://laravel.com)
+* [RabbitMQ](https://rabbitmq.com)
+* [Apache Kafka](https://kafka.apache.com)
 
 ### External APIs used
-* [Weather API](https://laravel.com)
-* [Google Maps API](https://laravel.com)
-* [Twilio API](https://laravel.com)
-* [Nodemailer API](https://laravel.com)
+* [Weather API](https://openweathermap.org/current)
+* [Google Maps API](https://www.npmjs.com/package/vue2-google-maps)
+* [Twilio API](https://www.twilio.com/docs/sms/api/message-resource)
+* [Nodemailer API](https://nodemailer.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -164,7 +164,7 @@ Ensure you are running the same version by running the packages with `--version`
 Driver logs in and views his dashboard
 
 <div align="center">
-	<img src="images/user_scenario1.png" alt="Logo" width="750" height="375">
+	<img src="images/user_scenario1.png" alt="Logo" width="600" height="300">
 </div>
 <div align="center">
 	<img src="images/scenario1.png" alt="Logo" width="600" height="300">
@@ -181,7 +181,7 @@ Driver logs in and views his dashboard
 Driver views map of all his parcels for delivery
 
 <div align="center">
-	<img src="images/user_scenario2.png" alt="Logo" width="750" height="375">
+	<img src="images/user_scenario2.png" alt="Logo" width="600" height="300">
 </div>
 <div align="center">
 	<img src="images/scenario2.png" alt="Logo" width="600" height="300">
@@ -191,7 +191,7 @@ Driver views map of all his parcels for delivery
 Driver completes a delivery of a parcel and marks it as either completed or failed
 
 <div align="center">
-	<img src="images/user_scenario3.png" alt="Logo" width="750" height="375">
+	<img src="images/user_scenario3.png" alt="Logo" width="600" height="300">
 </div>
 <div align="center">
 	<img src="images/scenario3.png" alt="Logo" width="600" height="300">
