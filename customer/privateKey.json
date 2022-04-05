@@ -1,0 +1,14 @@
+{
+	"type": "service_account",
+	"project_id": "ninja-truck-9fb80",
+	"private_key_id": "77649034a3a227a46cfcdfd527a6ccaa034e9503",
+	"private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCg37MyUGdhfO+a\nuJgyRX4XyIOBwBMVqhO2vda8mVEZ7GSfoKuAZI5IvDB2Ojvudn84IOLM3TMEYeHq\nJZcuYGd4NXpLWvYPkzW5/9t3X4mZoJDX4aBAaTL0HKEb7uFFL+S78UNL4uiQi90h\nMPCGUi3l0Drs7t9g2tqCrqiBNVE+vZ4XuBZTBxbCqgdYDxdXNaXTzkfN6NFj9U4q\nUYC5Ql/eRjQbAyhJbI4GBi43R3E8SR0TdH18BSSooqUso35ULPuHSOuYoiHckpOa\n1VMxtyl/1giDDBwEIHL6pnayIhVxAQjV6SqEPGrfN8sUB/JF6G73eA+Je+pHdbu2\nfNnw3dfDAgMBAAECggEAAlvlY8p8CZjsZodoa+xK8gxVqVRoszugOGDGQlO5Nbka\nrKCNgz92OqjPyRwHfvKr4OXSjZB8zAanamiMs/hj7AZUucAmtYnCEu0mibST7vXE\nyfWcBPXF8oBs+FzjXsFaCEt8YiN8p4n1fyQZks6nr6QDCTBjhCcRZzMqc2KVw2a8\nb2EwvShjHIhlt/zwzB0fEHYPSSdpR8lEu9XxUPPQ3UFFXBjN4J/wZvtfJMg7xLbo\nS8dUuWBde+uHIADQ9mOx8snd7VF75h0sOYBbuuxdbx7rO/RuA1P7Fe9QHOSxxHjM\n8Vw3yjfieNyF/kiLTnbWB1Fe73E1JVlprsRpRG9noQKBgQDbkrytcIw+i6Zhut4W\n/6CfRaMcyke6TVQCVdWbE673ZwohYbsLF9xXSTlFtNIpawYmot7V/2hgfK+7+O66\nOj0Iw01n3FKKNLc7TqKrPycjaNQK0VkMhdnyO3+XZhMXdWXP6K++ilolpUCgXJvh\nyU34BTgz4F4g40k65GtLCrHvUQKBgQC7kAD46JK/dkeCWRYnOG+vBkbwnjc3zToQ\nqfKqiU2ptlU3YzG+gtxk2AhHkc7oMpR5lj6tbN8iZcCNKAApzqPv+QsKeqtwVlKY\n2cL6L86HsScw39/Sjf53tkE7aa3Ztak7A9MWnYiUaWJLRHcYeebJfGYmkNY82xnY\n8osFv+YY0wKBgGZKRtG54+vjXQCccIhgUDDC3Uk1RxMYoTFxUVCsa89f1k1U3TE+\nzWxwdVju8xVOgZAQQiWJldOVYrz8LCLfrL1fVrky39T41/+uE4QZqJ8LX/UmMAjw\ndmctprQeXniIPYUNDoqCo5p0ENZkLk6SXFtV+yfXt6I0oFHqRb2w3tHxAoGAE6ib\nQXt27hRimFnoBYJXylt5Ef0zQmkDPf3iDlfHyRLwSZbe/t3OZc9yxrWUnye2Aixq\nM1km5f8OOH1Jzxf2fM94hcensmWJ0LV6Ryi9l+FMf0XnurThSADVQ3nnG9t7elED\nTeqDBzMod0Ucynb0ZofgWQhzO/um8OMzCQ48+rsCgYEAvkAR/2sxUGLjaGBkHhIN\nyg4YB1u83NvV7SD6Sn+K5RlNUhe3QOLYoUmhcqeEBWK7F0gp01D88Hd7QpxmvkVq\nA/TdlX6DLjQ5s0kyi/ZC4Z6IgM5tRrCp9dVLcwSi34c+2HIZj8I4RP5LJVomAcKT\nYojF+o/2Wh2bR3zsGCZiC40=\n-----END PRIVATE KEY-----\n",
+	"client_email": "firebase-adminsdk-ohw4i@ninja-truck-9fb80.iam.gserviceaccount.com",
+	"client_id": "107296712416935023600",
+	"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+	"token_uri": "https://oauth2.googleapis.com/token",
+	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+	"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ohw4i%40ninja-truck-9fb80.iam.gserviceaccount.com",
+	"twilio_account_sid": "ACd0a2edb340c30efaa40356724a1334f2",
+	"twilio_auth_token": "8c0feed3875e2661f695462b116f93ca"
+}

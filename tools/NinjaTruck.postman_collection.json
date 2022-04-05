@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "69282536-a01c-4a4d-8105-2fbbf667726f",
+		"name": "NinjaTruck",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "loadDashboard_Success",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"root1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/loadDashboard?apikey=BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": [
+						"loadDashboard"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadDashboard_Fail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"wrong\",\r\n    \"password\":\"WrongPassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/loadDashboard?apikey=BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": [
+						"loadDashboard"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDeliveryAddresses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    \"970109fa-bae0-48dc-8407-479ddf94b519\",\r\n    \"033a6d9d-a239-41b1-90f4-24791122d93b\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/getDeliveryAddresses",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["getDeliveryAddresses"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateParcelStatus_Completed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"Completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/updateParcelStatus/SGNJVAPPDELTRG5",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["updateParcelStatus", "SGNJVAPPDELTRG5"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateParcelStatus_Failed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"Failed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/updateParcelStatus/SGNJVAPPDELTRG6",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["updateParcelStatus", "SGNJVAPPDELTRG6"]
+				}
+			},
+			"response": []
+		}
+	]
+}

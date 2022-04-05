@@ -2,10 +2,9 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-import hashlib
 
 # Fetch the service account key JSON file contents
-cred = credentials.Certificate('privateKey.json')
+cred = credentials.Certificate('./tools/privateKey.json')
 
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
@@ -15,7 +14,7 @@ firebase_admin.initialize_app(cred, {
 ref = db.reference()
 
 def main():
-    with open('tools/database.json') as file:
+    with open('./tools/database.json') as file:
         Json=json.load(file)
     return ref.set(Json)
 

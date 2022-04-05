@@ -1,128 +1,128 @@
 {
   "Customers" : {
-    "f0eb8225-dab8-4658-b4af-fb35b27fe55f" : {
-      "CustomerName" : "Juan",
-      "PhoneNumber" : 80000001,
-      "Address": "118 Lor 1 Toa Payoh Level 4 Unit 1",
-      "Long":123,
-      "Lat":456,
-      "PostalCode":344555
-    },
-    "b1bca1c4-0fa2-46a9-85d0-bdf8fcdac77d" : {
-      "CustomerName" : "Greg",
-      "PhoneNumber" : 80000002,
-      "Address": "26 Bayshore Road, 06-08",
-      "Long":123,
-      "Lat":456,
-      "PostalCode":459972
-    },
     "033a6d9d-a239-41b1-90f4-24791122d93b" : {
+      "Address" : "Central Water Catchment, North Region",
       "CustomerName" : "Quinn",
-      "PhoneNumber" : 80000003,
-      "Address": "50 Kallang Pudding Road 01-01 Golden Wheel Industrial Building",
-      "Long":123,
-      "Lat":456,
-      "PostalCode":349326
-    },
-    "e3b54bd0-2c9a-40ee-a835-2e8d707d20d0" : {
-      "CustomerName" : "Ian",
-      "PhoneNumber" : 80000004,
-      "Address": "545 ORCHARD ROAD#01-05",
-      "Long":123,
-      "Lat":456,
-      "PostalCode":238882
-    },
-    "970109fa-bae0-48dc-8407-479ddf94b519" : {
-      "CustomerName" : "Hazel",
-      "PhoneNumber" : 80000005,
-      "Address": "HDB Lorong Toa Payoh 71 Lorong 4 Toa Payoh #01-397",
-      "Long":123,
-      "Lat":456,
-      "PostalCode":310071
+      "Lat" : 1.37746,
+      "Lng" : 103.8286,
+      "PhoneNumber" : 94573673,
+      "PostalCode" : 678278
     },
     "58c90aa2-dc19-4e43-8593-edcfeb02f04a" : {
+      "Address" : "6 Hougang Avenue 3 01-88",
       "CustomerName" : "Jane Doe",
+      "Lat" : 456,
+      "Lng" : 123,
       "PhoneNumber" : 80000006,
-      "Address": "6 Hougang Avenue 3 01-88",
-      "Long":123,
-      "Lat":456,
-      "PostalCode":530006
+      "PostalCode" : 530006
+    },
+    "970109fa-bae0-48dc-8407-479ddf94b519" : {
+      "Address" : "33, Sembawang Hills Drive, Ang Mo Kio",
+      "CustomerName" : "Hazel",
+      "Lat" : 1.376516,
+      "Lng" : 103.830228,
+      "PhoneNumber" : 94792020,
+      "PostalCode" : 579524
+    },
+    "b1bca1c4-0fa2-46a9-85d0-bdf8fcdac77d" : {
+      "Address" : "50, Jalan Gelenggang, Ang Mo Kio",
+      "CustomerName" : "Greg",
+      "Lat" : 1.37441,
+      "Lng" : 103.830511,
+      "PhoneNumber" : 90298918,
+      "PostalCode" : 579524
+    },
+    "e3b54bd0-2c9a-40ee-a835-2e8d707d20d0" : {
+      "Address" : "65, Jalan Gelenggang, Ang Mo Kio",
+      "CustomerName" : "Ian",
+      "Lat" : 1.374946,
+      "Lng" : 103.82976,
+      "PhoneNumber" : 97248790,
+      "PostalCode" : 579524
+    },
+    "f0eb8225-dab8-4658-b4af-fb35b27fe55f" : {
+      "Address" : "26, Jalan Sappan, Ang Mo Kio",
+      "CustomerName" : "Juan",
+      "Lat" : 1.372442,
+      "Lng" : 103.831595,
+      "PhoneNumber" : 86556981,
+      "PostalCode" : 568912
     }
   },
   "Drivers" : {
     "0a5e030c-ef0d-44c1-a234-d9ccb132be4e" : {
-      "ProfileURL":"https://firebasestorage.googleapis.com/v0/b/ninja-truck-9fb80.appspot.com/o/ProfileImage%2Fuser1.jpg?alt=media&token=51f2ca37-4f16-4e60-983c-3d044a3a49b3",
-      "Name" : "John Doe"
+      "Name" : "John Doe",
+      "ProfileURL" : "https://firebasestorage.googleapis.com/v0/b/ninja-truck-9fb80.appspot.com/o/ProfileImage%2Fuser1.jpg?alt=media&token=51f2ca37-4f16-4e60-983c-3d044a3a49b3"
     },
     "6ebf1d06-7fbb-42c5-844d-f6ee633855c4" : {
-      "ProfileURL":"https://firebasestorage.googleapis.com/v0/b/ninja-truck-9fb80.appspot.com/o/ProfileImage%2Fuser2.jpg?alt=media&token=1516e667-827d-4dba-abef-80d96433db41",
-      "Name" : "Bob"
+      "Name" : "Bob",
+      "ProfileURL" : "https://firebasestorage.googleapis.com/v0/b/ninja-truck-9fb80.appspot.com/o/ProfileImage%2Fuser2.jpg?alt=media&token=1516e667-827d-4dba-abef-80d96433db41"
     }
   },
   "Logins" : {
     "user1" : {
-      "DriverID": "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
-      "Password" : "root"
+      "DriverID" : "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
+      "Password" : "3de0c6d1959ece558ec030f37292e383a9c95f497e8235b89701b914be9bd1fb"
     },
     "user2" : {
-      "DriverID": "6ebf1d06-7fbb-42c5-844d-f6ee633855c4",
-      "Password" : "root2"
+      "DriverID" : "6ebf1d06-7fbb-42c5-844d-f6ee633855c4",
+      "Password" : "bf59d6a4564f9f49964ef377f398e35c7da2413e9d792c97dfdbbc9687ce8abc"
     }
   },
   "Parcels" : {
     "SGNJVAPPDELTRG5" : {
+      "CoD" : true,
       "CustomerID" : "f0eb8225-dab8-4658-b4af-fb35b27fe55f",
       "DriverID" : "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
       "Status" : "toDeliver",
-      "CoD":true,
-      "Time":"9AM - 10PM",
-      "Weight":"5.4kg",
-      "TimeDelivered" : ""
+      "Time" : "9AM - 10PM",
+      "TimeDelivered" : "",
+      "Weight" : 5.4
     },
     "SGNJVAPPDELTRG6" : {
+      "CoD" : true,
       "CustomerID" : "b1bca1c4-0fa2-46a9-85d0-bdf8fcdac77d",
       "DriverID" : "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
       "Status" : "toDeliver",
-      "CoD":true,
-      "Time":"11AM - 6PM",
-      "Weight":"2.3kg",
-      "TimeDelivered" : ""
+      "Time" : "11AM - 6PM",
+      "TimeDelivered" : "",
+      "Weight" : 2.3
     },
     "SGNJVAPPDELTRG7" : {
+      "CoD" : false,
       "CustomerID" : "033a6d9d-a239-41b1-90f4-24791122d93b",
       "DriverID" : "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
       "Status" : "toDeliver",
-      "CoD":false,
-      "Time":"10PM - 3PM",
-      "Weight":"0.7kg",
-      "TimeDelivered" : ""
+      "Time" : "10PM - 3PM",
+      "TimeDelivered" : "",
+      "Weight" : 0.7
     },
     "SGNJVAPPDELTRG8" : {
+      "CoD" : true,
       "CustomerID" : "e3b54bd0-2c9a-40ee-a835-2e8d707d20d0",
       "DriverID" : "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
       "Status" : "toDeliver",
-      "CoD":true,
-      "Time":"3PM - 9PM",
-      "Weight":"1.2kg",
-      "TimeDelivered" : ""
+      "Time" : "3PM - 9PM",
+      "TimeDelivered" : "",
+      "Weight" : 1.2
     },
     "SGNJVAPPDELTRG9" : {
+      "CoD" : false,
       "CustomerID" : "970109fa-bae0-48dc-8407-479ddf94b519",
       "DriverID" : "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
       "Status" : "Completed",
-      "CoD":false,
-      "Time":"8AM - 11AM",
-      "Weight":"6.1kg",
-      "TimeDelivered" : "20220313T122759"
+      "Time" : "8AM - 11AM",
+      "TimeDelivered" : "20220313T122759",
+      "Weight" : 6.1
     },
     "SGNJVAPPDELTRH1" : {
+      "CoD" : false,
       "CustomerID" : "58c90aa2-dc19-4e43-8593-edcfeb02f04a",
       "DriverID" : "0a5e030c-ef0d-44c1-a234-d9ccb132be4e",
       "Status" : "Failed",
-      "CoD":false,
-      "Time":"2PM - 7PM",
-      "Weight":"0.8kg",
-      "TimeDelivered" : "20220313T122710"
+      "Time" : "2PM - 7PM",
+      "TimeDelivered" : "20220313T122710",
+      "Weight" : 0.8
     }
   }
 }
