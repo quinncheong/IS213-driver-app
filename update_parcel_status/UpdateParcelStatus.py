@@ -59,26 +59,26 @@ def updateParcelStatus(parcelId):
     customer = response['data']
 
     #send sms and destructure customer data
-    customter_name = customer["CustomerName"]
+    customer_name = customer["CustomerName"]
 
     phone_number = f"+65{customer['PhoneNumber']}"
 
     if parcel['Status'] == 'Failed':
-        msg_body = f"Hi {customter_name}, your parcel with ID {parcelId} has failed to deliver."
+        msg_body = f"Hi {customer_name}, your parcel with ID {parcelId} has failed to deliver."
 
         email_body = f"""<h3>Hello Admin Team,</h3>
-        <p>The Parcel with ID: {message.parcelId} for User: {message.customerName} has failed to deliver.</p>
+        <p>The Parcel with ID: {parcelId} for User: {customer_name} has failed to deliver.</p>
 		<p>Please look into this to resolve the parcel issue.</p>"""
 
         email_message = {
-            "subject": f"Failed Delivery for Parcel: ${message.parcelId}",
+            "subject": f"Failed Delivery for Parcel: ${parcelId}",
             "body": email_body,
             "emails": emails
         }
-
+        print(email_message)
         send_email(email_message)
     else:
-        msg_body = f"Dear {customter_name}, your parcel with ID: {parcelId} has been delivered."
+        msg_body = f"Dear {customer_name}, your parcel with ID: {parcelId} has been delivered."
 
     message = {
         "phoneNumber": phone_number,
@@ -86,14 +86,8 @@ def updateParcelStatus(parcelId):
     }
 
     #msg_status can be True or False, depending on err.
-    msg_status = send_message(message) 
+    # msg_status = send_message(message) 
 
-    email_message = {
-        "parcelId": parcelId,
-        "customerName": customter_name,
-    }
-    send_email(email_message)
-    
     return jsonify(
         {
             "code": 200,

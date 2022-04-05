@@ -4,7 +4,7 @@ const sendMail = require("./sendMail").main;
 
 // const host = "127.0.0.1";
 // const port = "12345";
-const amqp = "amqp://localhost";
+const amqp = "amqp://rabbitmq";
 const queue = "nodemailer-amqp";
 
 // Create connection to AMQP server

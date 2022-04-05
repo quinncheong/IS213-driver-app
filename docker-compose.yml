@@ -51,7 +51,7 @@ services:
     networks:
       - kong-net
     ports:
-      - "5672:5672"
+      # - "5672:5672"
       - "15672:15672"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
