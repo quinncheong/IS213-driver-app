@@ -71,7 +71,7 @@ def updateParcelStatus(parcelId):
 		<p>Please look into this to resolve the parcel issue.</p>"""
 
         email_message = {
-            "subject": f"Failed Delivery for Parcel: ${parcelId}",
+            "subject": f"Failed Delivery for Parcel: {parcelId}",
             "body": email_body,
             "emails": emails
         }

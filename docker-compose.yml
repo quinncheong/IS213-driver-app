@@ -114,6 +114,7 @@ services:
       - kong-net
     depends_on:
       - rabbitmq
+      - updateParcelStatus
 
   loadDashboard:
     build:
