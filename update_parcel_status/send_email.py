@@ -13,8 +13,8 @@ def send_email(message):
     """ 
     message will be in the following form 
     {
-        parcelId: "",
-        customerName: "",
+        subject: "", // Plain Text
+        body: "", // HTML String ok
         emails: [],
     }
     """

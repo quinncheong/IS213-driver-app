@@ -21,20 +21,18 @@ async function main(message) {
 		requireTLS: true,
 	});
 
-	const output = `
-		<h3>Hello Admin Team,</h3>
-		<p>The Parcel with ID: ${message.parcelId} for user ${message.customerName} has failed to deliver.</p>
-		<p>Please look into this to resolve the parcel issue.</p>
-		`;
-
-	const emailStr = message.emails.join(",")
+	// const output = `
+	// 	<h3>Hello Admin Team,</h3>
+	// 	<p>The Parcel with ID: ${message.parcelId} for user ${message.customerName} has failed to deliver.</p>
+	// 	<p>Please look into this to resolve the parcel issue.</p>
+	// 	`;
 
 	let mailOptions = {
 		from: '"NinjaTruck" <ninjatruckESD@gmail.com>', // sender address
-		to: emailStr, // list of receivers in string form
-		subject: `Failed Delivery for Parcel: ${message.parcelId}`, // Subject line
+		to: message.emails.join(","), // list of receivers in string form
+		subject: message.subject, // Subject line
 		// text: `Click on / go to the link to reset your password ${link}${id}`, // plain text body
-		html: output, // html body
+		html: message.body, // html body
 	};
 
 	// send mail with defined transport object

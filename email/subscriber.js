@@ -2,8 +2,8 @@ const amqplib = require("amqplib/callback_api");
 
 const sendMail = require("./sendMail").main;
 
-const host = "127.0.0.1";
-const port = "12345";
+// const host = "127.0.0.1";
+// const port = "12345";
 const amqp = "amqp://localhost";
 const queue = "nodemailer-amqp";
 
