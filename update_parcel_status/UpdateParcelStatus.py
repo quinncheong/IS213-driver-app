@@ -86,7 +86,7 @@ def updateParcelStatus(parcelId):
     }
 
     #msg_status can be True or False, depending on err.
-    # msg_status = send_message(message) 
+    msg_status = send_message(message) 
 
     return jsonify(
         {
