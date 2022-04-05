@@ -21,27 +21,26 @@ amqplib.connect(amqp, (err, connection) => {
 		}
 
 		// Ensure queue for messages
-		channel.assertQueue(
-			queue,
-			{
-				// Ensure that the queue is not deleted when server restarts
-				durable: true,
-			},
-			(err) => {
-				if (err) {
-					console.error(err.stack);
-					return process.exit(1);
-				}
+		channel.assertQueue(queue, { durable: true }, (err) => {
+			if (err) {
+				console.error(err.stack);
+				return process.exit(1);
+			}
 
-				// Only request 1 unacked message from queue
-				// This value indicates how many messages we want to process in parallel
-				channel.prefetch(1);
+			// Only request 1 unacked message from queue
+			// This value indicates how many messages we want to process in parallel
+			channel.prefetch(2);
 
-				// Set up callback to handle messages received from the queue
-				channel.consume(queue, (data) => {
+			// Set up callback to handle messages received from the queue
+			channel.consume(
+				queue,
+				(data) => {
 					if (data === null) {
+						console.log("oops");
+						// channel.reject(data, true);
 						return;
 					}
+					// channel.ack(data);
 
 					// Decode message contents
 					let message = JSON.parse(data.content.toString());
@@ -49,8 +48,9 @@ amqplib.connect(amqp, (err, connection) => {
 					console.log(message);
 
 					// await sendMail(message);
-				});
-			}
-		);
+				},
+				{ noAck: true }
+			);
+		});
 	});
 });

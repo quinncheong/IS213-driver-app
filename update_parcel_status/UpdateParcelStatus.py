@@ -23,7 +23,7 @@ def healthcheck():
 @app.route("/test")
 def test():
     email_message = {
-        "parcelId": 12345,
+        "parcelId": 'helllooworld',
         "customerName": 'testing',
     }
     send_email(email_message)

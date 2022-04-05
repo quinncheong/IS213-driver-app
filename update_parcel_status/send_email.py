@@ -21,6 +21,8 @@ def send_email(message):
     amqp_setup.check_setup()
     email_message = json.dumps(message)
 
+    print(email_message)
+
     amqp_setup.channel.basic_publish(
         exchange=amqp_setup.exchangename, 
         routing_key="parcelFail.email", 
