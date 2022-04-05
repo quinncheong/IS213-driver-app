@@ -1,9 +1,9 @@
 version: "3.8"
 
-
 volumes:
-  pgdata: 
+  pgdata:
   kongadata:
+  rabbitmq_data:
 
 networks:
   kong-net:
@@ -11,7 +11,7 @@ networks:
 
 services:
 
-# For Message Queue Kafka
+  # For Message Queue Kafka
   zookeeper:
     image: 'bitnami/zookeeper:latest'
     restart: always
@@ -21,7 +21,6 @@ services:
       - '2181:2181'
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
-
 
   kafka:
     image: 'bitnami/kafka:latest'
@@ -40,8 +39,23 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
-# End of Message Queue Kafka
- 
+  # End of Message Queue Kafka
+
+  ####################################
+  # RabbitMQ: The messaging broker   
+  ####################################
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: esd-rabbit
+    restart: always
+    networks:
+      - kong-net
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
   login:
     build:
       context: ./login
@@ -50,7 +64,6 @@ services:
     restart: always
     networks:
       - kong-net
-    
 
   driver:
     build:
@@ -78,7 +91,7 @@ services:
     restart: always
     networks:
       - kong-net
-  
+
   sms:
     build:
       context: ./sms-node
@@ -91,6 +104,17 @@ services:
       - kafka
       - zookeeper
 
+  email:
+    build:
+      context: ./email
+      dockerfile: Dockerfile
+    image: ninjatruck/email:g5t7
+    restart: always
+    networks:
+      - kong-net
+    depends_on:
+      - rabbitmq
+
   loadDashboard:
     build:
       context: ./load_dashboard
@@ -100,9 +124,9 @@ services:
     networks:
       - kong-net
     environment:
-      loginURL : 'http://login:5001/authenticate'
-      driverURL : 'http://driver:5002/driver'
-      parcelURL : 'http://parcel:5003/parcel'
+      loginURL: 'http://login:5001/authenticate'
+      driverURL: 'http://driver:5002/driver'
+      parcelURL: 'http://parcel:5003/parcel'
     # ports:
     #   - "5000:5000"
     depends_on:
@@ -119,12 +143,12 @@ services:
     networks:
       - kong-net
     environment:
-      customerURL : 'http://customer:5004/customer'
+      customerURL: 'http://customer:5004/customer'
     # ports:
     #   - "5010:5010"
     depends_on:
       - customer
-    
+
   updateParcelStatus:
     build:
       context: ./update_parcel_status
@@ -134,8 +158,11 @@ services:
     networks:
       - kong-net
     environment:
-      customerURL : 'http://customer:5004/customer'
-      parcelURL : 'http://parcel:5003/parcel'
+      customerURL: 'http://customer:5004/customer'
+      parcelURL: 'http://parcel:5003/parcel'
+      rabbit_host: rabbitmq
+      rabbit_port: 5672
+      PYTHONUNBUFFERED: 1
     # ports:
     #   - "5020:5020"
     depends_on:
@@ -143,7 +170,7 @@ services:
       - customer
       - sms
       - kafka
-
+      - rabbitmq
 
   #######################################
   # Postgres: The database used by Kong
@@ -160,7 +187,7 @@ services:
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "kong"]
+      test: [ "CMD", "pg_isready", "-U", "kong" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -203,7 +230,7 @@ services:
       - kong-migration
     ports:
       - "8000:8000"
-  
+
   #######################################
   # Konga: Kong GUI
   #######################################
@@ -211,7 +238,7 @@ services:
     image: pantsel/konga
     restart: always
     networks:
-        - kong-net
+      - kong-net
     environment:
       DB_ADAPTER: postgres
       DB_HOST: kong-database
@@ -224,4 +251,3 @@ services:
       - "1337:1337"
     volumes:
       - kongadata:/app/kongadata
-

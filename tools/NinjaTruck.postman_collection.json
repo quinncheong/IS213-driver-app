@@ -22,9 +22,7 @@
 				"url": {
 					"raw": "http://localhost:8000/loadDashboard?apikey=BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "8000",
 					"path": [
 						"loadDashboard"
@@ -56,9 +54,7 @@
 				"url": {
 					"raw": "http://localhost:8000/loadDashboard?apikey=BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "8000",
 					"path": [
 						"loadDashboard"
@@ -90,13 +86,9 @@
 				"url": {
 					"raw": "http://localhost:8000/getDeliveryAddresses",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "8000",
-					"path": [
-						"getDeliveryAddresses"
-					]
+					"path": ["getDeliveryAddresses"]
 				}
 			},
 			"response": []
@@ -118,14 +110,9 @@
 				"url": {
 					"raw": "http://localhost:8000/updateParcelStatus/SGNJVAPPDELTRG5",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "8000",
-					"path": [
-						"updateParcelStatus",
-						"SGNJVAPPDELTRG5"
-					]
+					"path": ["updateParcelStatus", "SGNJVAPPDELTRG5"]
 				}
 			},
 			"response": []
@@ -147,14 +134,9 @@
 				"url": {
 					"raw": "http://localhost:8000/updateParcelStatus/SGNJVAPPDELTRG6",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "8000",
-					"path": [
-						"updateParcelStatus",
-						"SGNJVAPPDELTRG6"
-					]
+					"path": ["updateParcelStatus", "SGNJVAPPDELTRG6"]
 				}
 			},
 			"response": []
