@@ -26,7 +26,7 @@
   </a>
 
   <p align="center">
-    This outlines the project codebase for IS213 ESD - G5 Group7 - AY2021/2022 Semester 2
+    This outlines the project codebase for AY2021/2022 Semester 2 IS213 ESD - G5T7 
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -72,9 +72,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 NinjaTruck aims to be the last mile delivery management solution for delivery drivers. The application covers the most essential features a delivery driver will need when carrying out their day to day responsibilities of delivering a parcel to customers. 
+
+### Technical Diagrams
+<div align="center">
+	<img src="images/soa.png" alt="Logo" width="500" height="250">
+	<img src="images/technical_overview.png" alt="Logo" width="500" height="250">
+</div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -158,6 +162,11 @@ Ensure you are running the same version by running the packages with `--version`
 
 ## Scenario 1
 * Driver logs in and views his dashboard
+
+<div align="center">
+	<img src="images/scenario1.png" alt="Logo" width="750" height="375">
+</div>
+
 ### Beyond the Lab
 1. KONG is used as our API Gateway mainly for security implementation. Kong keeps the internal microservices from being directly exposed to external clients. 3 Plugins was also used to configure Kong:
 * Kong’s Bot detection and rate limiting was used to prevent any bot attacks, DoS attack, and limit login attempts in case an attacker tries to brute force through the login. 
@@ -168,9 +177,17 @@ Ensure you are running the same version by running the packages with `--version`
 ## Scenario 2
 * Driver views map of all his parcels for delivery
 
+<div align="center">
+	<img src="images/scenario2.png" alt="Logo" width="750" height="375">
+</div>
 
 ## Scenario 3
 * Driver completes a delivery of a parcel and marks it as either completed or failed
+	
+<div align="center">
+	<img src="images/scenario3.png" alt="Logo" width="750" height="375">
+</div>
+	
 ### Beyond the Lab
 1. Used Kafka as our message broker between Update Parcel Status and SMS microservice. Kafka is designed for holding and distributing large volumes of messages. Considering how there are hundreds of thousands of parcels delivered daily, kafka would be a good choice to handle the large amount of messages.
 2. Kafka uses their own custom kafka protocol.
@@ -181,7 +198,7 @@ Ensure you are running the same version by running the packages with `--version`
 
 
 <!-- ROADMAP -->
-## Roadmap
+<!-- ## Roadmap
 
 - [] Feature 1
 - [] Feature 2
@@ -190,7 +207,7 @@ Ensure you are running the same version by running the packages with `--version`
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
@@ -213,22 +230,22 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- LICENSE -->
-## License
+<!-- ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
 <!-- CONTACT -->
-## Contact
+<!-- ## Contact
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
