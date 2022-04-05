@@ -161,10 +161,13 @@ Ensure you are running the same version by running the packages with `--version`
 4. In browser, tap f12 to open console (as platform is only compatible for mobile)
 
 ## Scenario 1
-* Driver logs in and views his dashboard
+Driver logs in and views his dashboard
 
 <div align="center">
-	<img src="images/scenario1.png" alt="Logo" width="750" height="375">
+	<img src="images/user_scenario1.png" alt="Logo" width="750" height="375">
+</div>
+<div align="center">
+	<img src="images/scenario1.png" alt="Logo" width="600" height="300">
 </div>
 
 ### Beyond the Lab
@@ -175,17 +178,23 @@ Ensure you are running the same version by running the packages with `--version`
 3. To handle exceptions in business logic, Error handling is implemented if username or password is incorrect when logging in. User will be notified of the incorrect username or password
 
 ## Scenario 2
-* Driver views map of all his parcels for delivery
+Driver views map of all his parcels for delivery
 
 <div align="center">
-	<img src="images/scenario2.png" alt="Logo" width="750" height="375">
+	<img src="images/user_scenario2.png" alt="Logo" width="750" height="375">
+</div>
+<div align="center">
+	<img src="images/scenario2.png" alt="Logo" width="600" height="300">
 </div>
 
 ## Scenario 3
-* Driver completes a delivery of a parcel and marks it as either completed or failed
-	
+Driver completes a delivery of a parcel and marks it as either completed or failed
+
 <div align="center">
-	<img src="images/scenario3.png" alt="Logo" width="750" height="375">
+	<img src="images/user_scenario3.png" alt="Logo" width="750" height="375">
+</div>
+<div align="center">
+	<img src="images/scenario3.png" alt="Logo" width="600" height="300">
 </div>
 	
 ### Beyond the Lab
