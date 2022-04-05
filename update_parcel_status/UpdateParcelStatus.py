@@ -4,6 +4,7 @@ from invokes import invoke_http
 from os import environ
 
 from send_message import send_message
+from send_email import send_email
 
 app = Flask(__name__)
 CORS(app)
@@ -12,12 +13,34 @@ CORS(app)
 customerURL = environ.get('customerURL')
 parcelURL = environ.get('parcelURL')
 
+emails =  [
+    "quinncheong.2019@scis.smu.edu.sg", 
+    "ian.chia.2020@scis.smu.edu.sg", 
+    "jsebastian.2020@scis.smu.edu.sg"
+]
+
 # customerURL = 'http://localhost:5004/customer'
 # parcelURL = 'http://localhost:5003/parcel'
 
 @app.route("/")
 def healthcheck():
     return 'Update Parcel Status is up and running!'
+
+@app.route("/test")
+def test():
+
+    email_body = f"""<h3>Hello Admin Team,</h3>
+        <p>The Parcel with ID: {12345} for User: {12345678} has failed to deliver.</p>
+		<p>Please look into this to resolve the parcel issue.</p>"""
+
+    email_message = {
+        "subject": f"Failed Delivery for Parcel: {12345}",
+        "body": email_body,
+        "emails": emails
+    }
+    send_email(email_message)
+
+    return jsonify("OK", 200)
 
 @app.route("/updateParcelStatus/<string:parcelId>", methods=['POST'])
 def updateParcelStatus(parcelId):
@@ -26,7 +49,7 @@ def updateParcelStatus(parcelId):
         parcelURL+'/'+parcelId, method='PUT',
         json=request.get_json()
     )
-    print(response)
+    
     parcel = response['data']
 
     response = invoke_http(
@@ -35,18 +58,27 @@ def updateParcelStatus(parcelId):
     )
     customer = response['data']
 
-    print(parcel)
-    print(customer)
-
     #send sms and destructure customer data
-    customter_name = customer["CustomerName"]
+    customer_name = customer["CustomerName"]
 
     phone_number = f"+65{customer['PhoneNumber']}"
 
-    if parcel['Status'] == 'failed':
-        msg_body = f"Hi {customter_name}, your parcel with ID {parcelId} has failed to deliver."
+    if parcel['Status'] == 'Failed':
+        msg_body = f"Hi {customer_name}, your parcel with ID {parcelId} has failed to deliver."
+
+        email_body = f"""<h3>Hello Admin Team,</h3>
+        <p>The Parcel with ID: {parcelId} for User: {customer_name} has failed to deliver.</p>
+		<p>Please look into this to resolve the parcel issue.</p>"""
+
+        email_message = {
+            "subject": f"Failed Delivery for Parcel: {parcelId}",
+            "body": email_body,
+            "emails": emails
+        }
+        print(email_message)
+        send_email(email_message)
     else:
-        msg_body = f"Dear {customter_name}, your parcel with id: {parcelId} has been delivered."
+        msg_body = f"Dear {customer_name}, your parcel with ID: {parcelId} has been delivered."
 
     message = {
         "phoneNumber": phone_number,
@@ -55,7 +87,7 @@ def updateParcelStatus(parcelId):
 
     #msg_status can be True or False, depending on err.
     msg_status = send_message(message) 
-    
+
     return jsonify(
         {
             "code": 200,

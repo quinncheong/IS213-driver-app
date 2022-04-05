@@ -77,7 +77,7 @@
       "Status" : "toDeliver",
       "Time" : "9AM - 10PM",
       "TimeDelivered" : "",
-      "Weight" : "5.4kg"
+      "Weight" : 5.4
     },
     "SGNJVAPPDELTRG6" : {
       "CoD" : true,
@@ -86,7 +86,7 @@
       "Status" : "toDeliver",
       "Time" : "11AM - 6PM",
       "TimeDelivered" : "",
-      "Weight" : "2.3kg"
+      "Weight" : 2.3
     },
     "SGNJVAPPDELTRG7" : {
       "CoD" : false,
@@ -95,7 +95,7 @@
       "Status" : "toDeliver",
       "Time" : "10PM - 3PM",
       "TimeDelivered" : "",
-      "Weight" : "0.7kg"
+      "Weight" : 0.7
     },
     "SGNJVAPPDELTRG8" : {
       "CoD" : true,
@@ -104,7 +104,7 @@
       "Status" : "toDeliver",
       "Time" : "3PM - 9PM",
       "TimeDelivered" : "",
-      "Weight" : "1.2kg"
+      "Weight" : 1.2
     },
     "SGNJVAPPDELTRG9" : {
       "CoD" : false,
@@ -113,7 +113,7 @@
       "Status" : "Completed",
       "Time" : "8AM - 11AM",
       "TimeDelivered" : "20220313T122759",
-      "Weight" : "6.1kg"
+      "Weight" : 6.1
     },
     "SGNJVAPPDELTRH1" : {
       "CoD" : false,
@@ -122,7 +122,7 @@
       "Status" : "Failed",
       "Time" : "2PM - 7PM",
       "TimeDelivered" : "20220313T122710",
-      "Weight" : "0.8kg"
+      "Weight" : 0.8
     }
   }
 }
