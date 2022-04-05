@@ -20,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/loadDashboard",
+					"raw": "http://localhost:8000/loadDashboard?apikey=BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -28,6 +28,12 @@
 					"port": "8000",
 					"path": [
 						"loadDashboard"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz"
+						}
 					]
 				}
 			},
@@ -48,7 +54,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/loadDashboard",
+					"raw": "http://localhost:8000/loadDashboard?apikey=BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -56,6 +62,12 @@
 					"port": "8000",
 					"path": [
 						"loadDashboard"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz"
+						}
 					]
 				}
 			},
@@ -68,7 +80,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    \"033a6d9d-a239-41b1-90f4-24791122d93b\",\r\n    \"970109fa-bae0-48dc-8407-479ddf94b519\"\r\n]",
+					"raw": "[\r\n    \"970109fa-bae0-48dc-8407-479ddf94b519\",\r\n    \"033a6d9d-a239-41b1-90f4-24791122d93b\"\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
