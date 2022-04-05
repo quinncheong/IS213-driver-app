@@ -22,10 +22,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="750" height="375">
   </a>
-
-<h3 align="center">NinjaTruck</h3>
 
   <p align="center">
     This outlines the project codebase for IS213 ESD - G5 Group7 - AY2021/2022 Semester 2
