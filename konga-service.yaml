@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: konga
   name: konga
 spec:
+  type: NodePort
   ports:
     - name: "1337"
       port: 1337

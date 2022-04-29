@@ -25,7 +25,7 @@ spec:
         io.kompose.service: driver
     spec:
       containers:
-        - image: ninjatruck/driver:g5t7
+        - image: quinncheong/driver:1.0.0
           name: driver
           resources: {}
       restartPolicy: Always
