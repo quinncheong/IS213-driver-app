@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/kong-net: "true"
+    io.kompose.service: kong-migration
+  name: kong-migration
+spec:
+  containers:
+    - args:
+        - kong
+        - migrations
+        - bootstrap
+      env:
+        - name: KONG_DATABASE
+          value: postgres
+        - name: KONG_PG_HOST
+          value: kong-database
+        - name: KONG_PG_PASSWORD
+          value: password
+        - name: KONG_PG_USER
+          value: kong
+      image: kong:2.0.4
+      name: kong-migration
+      resources: {}
+  restartPolicy: OnFailure
+status: {}
