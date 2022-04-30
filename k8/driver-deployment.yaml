@@ -27,6 +27,8 @@ spec:
       containers:
         - image: jsebastian2020/driver:1.0.0
           name: driver
+          ports:
+            - containerPort: 5002
           resources: {}
       restartPolicy: Always
 status: {}

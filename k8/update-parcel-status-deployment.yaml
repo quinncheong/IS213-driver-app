@@ -38,6 +38,8 @@ spec:
               value: "5672"
           image: jsebastian2020/update_parcel_status:1.0.0
           name: update-parcel-status
+          ports:
+            - containerPort: 5020
           resources: {}
       restartPolicy: Always
 status: {}
