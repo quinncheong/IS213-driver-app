@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: konga
+  name: konga
+spec:
+  ports:
+    - name: "1337"
+      port: 1337
+      targetPort: 1337
+  selector:
+    io.kompose.service: konga
+status:
+  loadBalancer: {}
