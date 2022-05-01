@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: get-delivery-addresses
+  name: get-delivery-addresses
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: get-delivery-addresses
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/kong-net: "true"
+        io.kompose.service: get-delivery-addresses
+    spec:
+      containers:
+        - env:
+            - name: customerURL
+              value: http://customer:5004/customer
+          ports:
+            - containerPort: 5010
+          image: jsebastian2020/get_delivery_addresses:1.0.0
+          name: get-delivery-addresses
+          resources: {}
+      restartPolicy: Always
+status: {}

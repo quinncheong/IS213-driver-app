@@ -149,9 +149,10 @@ Ensure you are running the same version by running the packages with `--version`
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-1. Open folder in vscode, cd “Frontend Code”, and open terminal
+1. Open folder in vscode and open terminal
 2. Install required dependencies 
   ```sh
+	$ cd Frontend
 	$ npm install
   ```
 3. Launch NinjaTruck Application
@@ -261,11 +262,11 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Greg G Tan Jun Kai]()
-* [Hazel Ma Ruiqi]()
-* [Ian Chia Chern Yi]()
-* [Juan Sebastian]()
-* [Quinn Cheong Shi Han]()
+* [Greg G Tan Jun Kai](https://github.com/greggtan)
+* [Hazel Ma Ruiqi](https://github.com/hazelmrq)
+* [Ian Chia Chern Yi](https://github.com/theianchia)
+* [Juan Sebastian](https://juanjaho.github.io/)
+* [Quinn Cheong Shi Han](https://github.com/quinncheong)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

@@ -60,7 +60,7 @@ services:
     build:
       context: ./login
       dockerfile: Dockerfile
-    image: jsebastian2020/login:1.0.0
+    image: ninjatruck/login:g5t7
     restart: always
     networks:
       - kong-net
@@ -69,7 +69,7 @@ services:
     build:
       context: ./driver
       dockerfile: Dockerfile
-    image: jsebastian2020/driver:1.0.0
+    image: ninjatruck/driver:g5t7
     restart: always
     networks:
       - kong-net
@@ -78,7 +78,7 @@ services:
     build:
       context: ./parcel
       dockerfile: Dockerfile
-    image: jsebastian2020/parcel:1.0.0
+    image: ninjatruck/parcel:g5t7
     restart: always
     networks:
       - kong-net
@@ -87,7 +87,7 @@ services:
     build:
       context: ./customer
       dockerfile: Dockerfile
-    image: jsebastian2020/customer:1.0.0
+    image: ninjatruck/customer:g5t7
     restart: always
     networks:
       - kong-net
@@ -96,7 +96,7 @@ services:
     build:
       context: ./sms-node
       dockerfile: Dockerfile
-    image: jsebastian2020/sms:1.0.0
+    image: ninjatruck/sms:g5t7
     restart: always
     networks:
       - kong-net
@@ -108,7 +108,7 @@ services:
     build:
       context: ./email
       dockerfile: Dockerfile
-    image: jsebastian2020/email:1.0.0
+    image: ninjatruck/email:g5t7
     restart: always
     networks:
       - kong-net
@@ -116,11 +116,11 @@ services:
       - rabbitmq
       - updateParcelStatus
 
-  load-dashboard:
+  loadDashboard:
     build:
       context: ./load_dashboard
       dockerfile: Dockerfile
-    image: jsebastian2020/load_dashboard:1.0.0
+    image: ninjatruck/load_dashboard:g5t7
     restart: always
     networks:
       - kong-net
@@ -135,11 +135,11 @@ services:
       - driver
       - parcel
 
-  get-delivery-addresses:
+  getDeliveryAddresses:
     build:
       context: ./get_delivery_addresses
       dockerfile: Dockerfile
-    image: jsebastian2020/get_delivery_addresses:1.0.0
+    image: ninjatruck/get_delivery_addresses:g5t7
     restart: always
     networks:
       - kong-net
@@ -150,11 +150,11 @@ services:
     depends_on:
       - customer
 
-  update-parcel-status:
+  updateParcelStatus:
     build:
       context: ./update_parcel_status
       dockerfile: Dockerfile
-    image: jsebastian2020/update_parcel_status:1.0.0
+    image: ninjatruck/update_parcel_status:g5t7
     restart: always
     networks:
       - kong-net

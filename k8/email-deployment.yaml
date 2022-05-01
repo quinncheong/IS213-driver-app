@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: email
+  name: email
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: email
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/kong-net: "true"
+        io.kompose.service: email
+    spec:
+      containers:
+        - image: jsebastian2020/email:1.0.0
+          name: email
+          resources: {}
+      restartPolicy: Always
+status: {}
