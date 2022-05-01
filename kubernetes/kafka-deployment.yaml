@@ -43,7 +43,7 @@ spec:
           image: bitnami/kafka:latest
           name: kafka
           ports:
-            - containerPort: 9093
+            - containerPort: 9092
           resources: {}
       restartPolicy: Always
 status: {}

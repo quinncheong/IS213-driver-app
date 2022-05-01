@@ -4,7 +4,7 @@ metadata:
   name: load-dashboard
 spec:
   selector:
-    io.kompose.service: load-dashboard
+    io.kompose.service: loaddashboard
   ports:
     - port: 5000
       targetPort: 5000

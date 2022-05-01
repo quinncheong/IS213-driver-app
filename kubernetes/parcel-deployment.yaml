@@ -6,13 +6,13 @@ metadata:
     kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
   labels:
-    io.kompose.service: loaddashboard
-  name: loaddashboard
+    io.kompose.service: parcel
+  name: parcel
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: loaddashboard
+      io.kompose.service: parcel
   strategy: {}
   template:
     metadata:
@@ -22,18 +22,13 @@ spec:
       creationTimestamp: null
       labels:
         io.kompose.network/kong-net: "true"
-        io.kompose.service: loaddashboard
+        io.kompose.service: parcel
     spec:
       containers:
-        - env:
-            - name: driverURL
-              value: http://driver:5002/driver
-            - name: loginURL
-              value: http://login:5001/authenticate
-            - name: parcelURL
-              value: http://parcel:5003/parcel
-          image: ninjatruck/load_dashboard:g5t7
-          name: loadDashboard
+        - image: quinncheong/parcel:1.0.0
+          name: parcel
+          ports:
+            - containerPort: 5003
           resources: {}
       restartPolicy: Always
 status: {}
