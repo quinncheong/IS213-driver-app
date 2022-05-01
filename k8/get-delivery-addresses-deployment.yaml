@@ -28,10 +28,10 @@ spec:
         - env:
             - name: customerURL
               value: http://customer:5004/customer
-          ports:
-            - containerPort: 5010
           image: jsebastian2020/get_delivery_addresses:1.0.0
           name: get-delivery-addresses
+          ports:
+            - containerPort: 5010
           resources: {}
       restartPolicy: Always
 status: {}

@@ -1,12 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: driver
   name: driver
 spec:
+  ports:
+    - name: "5002"
+      port: 5002
+      targetPort: 5002
   selector:
     io.kompose.service: driver
-  ports:
-    - port: 5002
-      targetPort: 5002
-
-
+status:
+  loadBalancer: {}

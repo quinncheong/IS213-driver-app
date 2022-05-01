@@ -25,12 +25,10 @@ spec:
         io.kompose.service: customer
     spec:
       containers:
-        - env:
+        - image: jsebastian2020/customer:1.0.0
           name: customer
           ports:
             - containerPort: 5004
-          image: jsebastian2020/customer:1.0.0
-         
           resources: {}
       restartPolicy: Always
 status: {}

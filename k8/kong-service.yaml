@@ -13,10 +13,9 @@ spec:
     - name: "8000"
       port: 8000
       targetPort: 8000
-    - name: admin
+    - name: "8001"
       port: 8001
       targetPort: 8001
-
   selector:
     io.kompose.service: kong
 status:

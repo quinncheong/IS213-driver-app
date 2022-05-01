@@ -33,9 +33,9 @@ spec:
             - name: parcelURL
               value: http://parcel:5003/parcel
           image: jsebastian2020/load_dashboard:1.0.0
+          name: load-dashboard
           ports:
             - containerPort: 5000
-          name: load-dashboard
           resources: {}
       restartPolicy: Always
 status: {}

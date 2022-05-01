@@ -6,17 +6,14 @@ metadata:
     kompose.version: 1.26.0 (40646f47)
   creationTimestamp: null
   labels:
-    io.kompose.service: rabbitmq
-  name: rabbitmq
+    io.kompose.service: get-delivery-addresses
+  name: get-delivery-addresses
 spec:
   ports:
-    - name: "5672"
-      port: 5672
-      targetPort: 5672
-    - name: "15672"
-      port: 15672
-      targetPort: 15672
+    - name: "5010"
+      port: 5010
+      targetPort: 5010
   selector:
-    io.kompose.service: rabbitmq
+    io.kompose.service: get-delivery-addresses
 status:
   loadBalancer: {}
