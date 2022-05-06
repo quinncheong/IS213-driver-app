@@ -71,7 +71,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
 NinjaTruck aims to be the last mile delivery management solution for delivery drivers. The application covers the most essential features a delivery driver will need when carrying out their day to day responsibilities of delivering a parcel to customers. 
 
 ### Technical Diagrams
@@ -97,17 +96,25 @@ NinjaTruck aims to be the last mile delivery management solution for delivery dr
 * [Python](https://python.org/)
 * [Node.js](https://nodejs.org/)
 * [Java Spring Boot](https://spring.io/)
-* [Docker](https://docker.com)
 
 ### Message Brokers
 * [RabbitMQ](https://rabbitmq.com)
 * [Apache Kafka](https://kafka.apache.com)
+
+### DevOps
+* [Docker](https://docker.com)
+* [Kubernetes](https://kubernetes.io/)
+* [Octant](https://octant.dev/)
+
+### Deployment
+* [Tanzu Community Edition](https://tanzucommunityedition.io/)
 
 ### External APIs used
 * [Weather API](https://openweathermap.org/current)
 * [Google Maps API](https://www.npmjs.com/package/vue2-google-maps)
 * [Twilio API](https://www.twilio.com/docs/sms/api/message-resource)
 * [Nodemailer API](https://nodemailer.com)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -131,16 +138,16 @@ Make sure you have a clean environment with no other containers as it can possib
   Kong Admin URL: http://kong:8001
   ```
 5. Go to Snapshots located on bottom right of the sidebar
-6. Select _IMPORT FROM FILE_ and import ./tools/kongSnapshot.json
-7. Click on _DETAILS_ for the new snapshot created which ends with Ninjatruck
-8. Select _RESTORE_, tick all of the boxes, and click on _IMPORT OBJECTS_
-9. Repeat step 8 until there is only 1 failed item left being under _key-auths_
-10. Select _CONSUMERS_ on the side bar and select driver
-11. Click on _Credentials_ and select _API KEYS_
-12. Select _CREATE API KEY_ and key in: _BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz_ and _SUBMIT_
+6. Select IMPORT FROM FILE and import `./tools/kongSnapshot.json`
+7. Click on DETAILS for the new snapshot created which ends with Ninjatruck
+8. Select RESTORE, tick all of the boxes, and click on IMPORT OBJECTS
+9. Repeat step 8 until there is only 1 failed item left being under key-auths
+10. Select CONSUMERS on the side bar and select driver
+11. Click CREDENTIALS and select API KEYS
+12. Select CREATE API KEY and key in: `BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz` and SUBMIT
 
 ## Prerequisites
-* Docker version 20.10.13, build a224086
+* Docker version - 20.10.13
 * Node - v16.13.0
 
 Ensure you are running the same version by running the packages with `--version` in the terminal
@@ -198,64 +205,31 @@ Driver completes a delivery of a parcel and marks it as either completed or fail
 	<img src="images/scenario3.png" alt="Logo" width="600" height="300">
 </div>
 	
-### Beyond the Lab
+### Additional Points
 1. Used Kafka as our message broker between Update Parcel Status and SMS microservice. Kafka is designed for holding and distributing large volumes of messages. Considering how there are hundreds of thousands of parcels delivered daily, kafka would be a good choice to handle the large amount of messages.
 2. Kafka uses their own custom kafka protocol.
 3. SMS microservice is built with Node.js. This is to highlight that the microservices are language agnostic.
 4. To handle exceptions in business logic, Error handling is implemented if delivery has not been fulfilled. 
 
+### Container Orchestration
+* Each of the services in the red box represents a kubernetes pod containing our services. 
+* Our Kong gateway acts as an entry point between the clients and our pods. With kubernetes, there is now the capability to scale our services easily. 
+* With the use of either vertical or horizontal Pod Autoscaler, and their auto load-balancer, scaling through kubernetes is made much easier compared to load balancing and scaling in a pure docker environment.
 
+<div align="center">
+	<img src="images/kubernetes.png" alt="Logo" width="733" height="329">
+</div>
 
+### Deployment
+* Utilized Tanzu Community edition to provision and set up our aws infrastructure, and deploy our Kubernetes management cluster onto an ec2 instance, which would contain our downloaded packages and tooling. 
+* From there, we created our workload cluster to run in another ec2 instance which would contain our application. To monitor our workload cluster, we use octant which helps to display the lifecycle of our pods in the cluster and the logs. 
 
-<!-- ROADMAP -->
-<!-- ## Roadmap
-
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-<!-- ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
-
-
-
-<!-- CONTACT -->
-<!-- ## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
+<div align="center">
+	<img src="images/sa.png" alt="Logo" width="713" height="362">
+</div>
+<div align="center">
+	<img src="images/octant.png" alt="Logo" width="613" height="283">
+</div>
 
 
 
