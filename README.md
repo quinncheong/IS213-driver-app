@@ -80,7 +80,7 @@ Make sure you have a clean environment with no other containers as it can possib
   Kong Admin URL: http://kong:8001
   ```
 5. Go to Snapshots located on bottom right of the sidebar
-6. Select IMPORT FROM FILE and import `./tools/kongSnapshot.json`
+6. Select IMPORT FROM FILE and import ./tools/kongSnapshot.json
 7. Click on DETAILS for the new snapshot created which ends with Ninjatruck
 8. Select RESTORE, tick all of the boxes, and click on IMPORT OBJECTS
 9. Repeat step 8 until there is only 1 failed item left being under key-auths
@@ -120,7 +120,7 @@ Driver logs in and views his dashboard
 	<img src="images/scenario1.png" alt="Logo" width="600" height="300">
 </div>
 
-### Beyond the Lab
+### Additional Points
 1. KONG is used as our API Gateway mainly for security implementation. Kong keeps the internal microservices from being directly exposed to external clients. 3 Plugins was also used to configure Kong:
 * Kong’s Bot detection and rate limiting was used to prevent any bot attacks, DoS attack, and limit login attempts in case an attacker tries to brute force through the login. 
 * Key-auth plugin was also used to add another layer of security by allowing only users with an api key belonging to Driver type consumer to access the microservices through kong.
