@@ -83,14 +83,11 @@ Make sure you have a clean environment with no other containers as it can possib
 6. Select IMPORT FROM FILE and import ./tools/kongSnapshot.json
 7. Click on DETAILS for the new snapshot created which ends with Ninjatruck
 8. Select RESTORE, tick all of the boxes, and click on IMPORT OBJECTS
-9. Repeat step 8 until there is only 1 failed item left being under key-auths
-10. Select CONSUMERS on the side bar and select driver
-11. Click CREDENTIALS and select API KEYS
-12. Select CREATE API KEY and key in: `BtqGD0VZBhHgFiIm2fbfA5zdzXmN6Coz` and SUBMIT
+
 
 ## Prerequisites
 * Docker version - 20.10.13
-* Node - v16.13.0
+* Node - 16.13.0
 
 Ensure you are running the same version by running the packages with `--version` in the terminal
 
