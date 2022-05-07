@@ -11,6 +11,55 @@
   </p>
 </div>
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#technical-diagrams">Technical Diagrams</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#built-with">Built With</a>
+      <ul>
+        <li><a href="#frontend">Frontend</a></li>
+        <li><a href="#api-gateway">API Gateway</a></li>
+	<li><a href="#backend">Backend</a></li>
+        <li><a href="#message-brokers">Message Brokers</a></li>
+	<li><a href="#devops">DevOps</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+	<li><a href="#external-apis-used">External APIs used</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#configuring-backend">Configuring Backend</a></li>
+	<li><a href="#prerequisites">Prerequisites</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#scenario-1">Scenario 1</a>
+      <ul>
+        <li><a href="#additional-points">Additional Points</a></li>
+      </ul>
+    </li>
+    <li><a href="#scenario-2">Scenario 2</a></li>
+    <li>
+      <a href="#scneario-3">Scenario 3</a>
+      <ul>
+        <li><a href="#additional-points">Additional Points</a></li>
+      </ul>
+    </li>
+    <li><a href="#container-orchestration">Container Orchestration</a></li>
+    <li><a href="#kubernetes-deployment">Kubernetes Deployment</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 NinjaTruck aims to be the last mile delivery management solution for delivery drivers. The application covers the most essential features a delivery driver will need when carrying out their day to day responsibilities of delivering a parcel to customers. 
@@ -64,7 +113,7 @@ NinjaTruck aims to be the last mile delivery management solution for delivery dr
 
 <!-- GETTING STARTED -->
 ## Getting Started
-### Backend
+### Configuring Backend
 Make sure you have a clean environment with no other containers as it can possibly conflict with this project’s ports mapping, image or container naming/labeling. Make sure that the Kong container and image is also deleted along with its network to set up a new kong configuration.
 1. From the directory ./IS213-driver-app, open the terminal and enter `docker compose up` 
 2. Access [http://localhost:1337](http://localhost:1337) in a browser to create an admin user for Konga
@@ -84,14 +133,15 @@ Make sure you have a clean environment with no other containers as it can possib
 7. Click on DETAILS for the new snapshot created which ends with Ninjatruck
 8. Select RESTORE, tick all of the boxes, and click on IMPORT OBJECTS
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Prerequisites
-* Docker version - 20.10.13
+### Prerequisites
+* Docker - 20.10.13
 * Node - 16.13.0
 
 Ensure you are running the same version by running the packages with `--version` in the terminal
 
-
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -106,6 +156,8 @@ Ensure you are running the same version by running the packages with `--version`
 	$ quasar dev
   ```
 4. In browser, tap f12 to open console (as platform is only compatible for mobile)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Scenario 1
 Driver logs in and views his dashboard
@@ -124,6 +176,8 @@ Driver logs in and views his dashboard
 2. Driver microservice is coded in Java SpringBoot. This is to highlight that the microservices are  language agnostic.
 3. To handle exceptions in business logic, Error handling is implemented if username or password is incorrect when logging in. User will be notified of the incorrect username or password
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Scenario 2
 Driver views map of all his parcels for delivery
 
@@ -133,6 +187,8 @@ Driver views map of all his parcels for delivery
 <div align="center">
 	<img src="images/scenario2.png" alt="Logo" width="600" height="300">
 </div>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Scenario 3
 Driver completes a delivery of a parcel and marks it as either completed or failed
@@ -150,7 +206,9 @@ Driver completes a delivery of a parcel and marks it as either completed or fail
 3. SMS microservice is built with Node.js. This is to highlight that the microservices are language agnostic.
 4. To handle exceptions in business logic, Error handling is implemented if delivery has not been fulfilled. 
 
-### Container Orchestration
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Container Orchestration
 * Each of the services in the red box represents a kubernetes pod containing our services. 
 * Our Kong gateway acts as an entry point between the clients and our pods. With kubernetes, there is now the capability to scale our services easily. 
 * With the use of either vertical or horizontal Pod Autoscaler, and their auto load-balancer, scaling through kubernetes is made much easier compared to load balancing and scaling in a pure docker environment.
@@ -159,7 +217,9 @@ Driver completes a delivery of a parcel and marks it as either completed or fail
 	<img src="images/kubernetes.png" alt="Logo" width="733" height="329">
 </div>
 
-### Deployment
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Kubernetes Deployment
 * Utilized Tanzu Community edition to provision and set up our aws infrastructure, and deploy our Kubernetes management cluster onto an ec2 instance, which would contain our downloaded packages and tooling. 
 * From there, we created our workload cluster to run in another ec2 instance which would contain our application. To monitor our workload cluster, we use octant which helps to display the lifecycle of our pods in the cluster and the logs. 
 
@@ -170,6 +230,7 @@ Driver completes a delivery of a parcel and marks it as either completed or fail
 	<img src="images/octant.png" alt="Logo" width="613" height="283">
 </div>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
